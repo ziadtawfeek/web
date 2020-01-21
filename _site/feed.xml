@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-21T23:13:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ziad Tawfeek</title><subtitle>Learning Fanatic | Skeptical | Software Engineer in Test</subtitle><author><name>Ziad Tawfeek</name></author><entry><title type="html">Things I learned at TestBash Munich 2018 #OKTOBERTEST</title><link href="http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018-oktobertest" rel="alternate" type="text/html" title="Things I learned at TestBash Munich 2018 #OKTOBERTEST" /><published>2018-09-29T00:00:00+02:00</published><updated>2018-09-29T00:00:00+02:00</updated><id>http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018%20-#oktobertest</id><content type="html" xml:base="http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018-oktobertest">&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt; &lt;strong&gt;TestBash Munich&lt;/strong&gt; was awesome! the talks and the people were well worth it and &lt;strong&gt;Open Space&lt;/strong&gt; was even better than I thought it would be. Only 3 talks left (to be updated). Also, Thanks to &lt;a href=&quot;https://instabug.com/&quot;&gt;&lt;strong&gt;Instabug&lt;/strong&gt;&lt;/a&gt; for making it happen!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;…&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Okay, let’s do this. I don’t know if I mentioned beforehand but this would be my first time sharing an experience through a blog, I will try to make it a good one!&lt;/p&gt;
+
+&lt;p&gt;I have been following &lt;a href=&quot;https://www.ministryoftesting.com/events&quot;&gt;TestBash&lt;/a&gt; events for some time now and a couple of weeks ago, I got to experience my first ever TestBash at Munich!&lt;/p&gt;
+
+&lt;h1 id=&quot;whats-so-special-about-testbash&quot;&gt;What’s so special about TestBash?&lt;/h1&gt;
+
+&lt;p&gt;It’s a conference where the testing community meets and discusses several topics. The conference format usually a two-day event (could be more):&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Day One&lt;/strong&gt;: Line-up of &lt;strong&gt;selected speakers&lt;/strong&gt; to talk about anything &lt;strong&gt;testing.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Day Two: Open space&lt;/strong&gt; which is a free-structured where anyone can write down any idea or a topic to discuss, share or learn and everyone gets to vote according to their preference. (It was awesome!).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;interesting-how-did-it-go&quot;&gt;Interesting, how did it go?&lt;/h1&gt;
+
+&lt;p&gt;First, there was a meetup that is custom before and after the conference, I arrived in Munich and straight away got to attend the Pre TestBash hosted at &lt;a href=&quot;https://qualityminds.de/en&quot;&gt;&lt;strong&gt;QualityMinds GmbH&lt;/strong&gt;&lt;/a&gt;. The meetup was a chance to say hello to the speakers and the attendees and get people into the spirit of TestBash.&lt;/p&gt;
+
+&lt;p&gt;For an introvert, meetups might be overwhelming and networking functions maybe naturally stressful.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1000/1*BgjLsToiW2B0knuFlKazaA.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once I arrived, everyone was so inviting and after some time, I felt relaxed and enjoyed a lot of conversations for the rest of the night.&lt;/p&gt;
+
+&lt;h1 id=&quot;conference-day&quot;&gt;Conference Day&lt;/h1&gt;
+
+&lt;p&gt;It included a line-up of 9 talks and I will point out my take on some of the talks&lt;/p&gt;
+
+&lt;h1 id=&quot;doubt-builds-trust--elizabeth-zagroba&quot;&gt;Doubt builds trust — &lt;a href=&quot;https://twitter.com/ezagroba&quot;&gt;Elizabeth Zagroba&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Elizabeth focused on &lt;strong&gt;interviewing and hiring&lt;/strong&gt;. We always need to find out what candidates bring to the table and whether you will be able to build trust in them to get things done in a &lt;strong&gt;very short interview time span.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;She illustrated the definition of &lt;strong&gt;trust&lt;/strong&gt; and &lt;strong&gt;distrust&lt;/strong&gt; according to &lt;a href=&quot;https://www.thinbook.com/the-thin-book-of-trust/&quot;&gt;The Thin Book of Trust&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/6072/1*mv7PfBmOOGJKZ0ix1JoiyA.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Try to understand them. So the thing that might help was to &lt;strong&gt;sit on the same side of the table as the candidate&lt;/strong&gt; — and &lt;strong&gt;pair test with them&lt;/strong&gt; on an application. She also presented &lt;strong&gt;Frances Frei **pillar&lt;/strong&gt;:** &lt;strong&gt;Authenticity&lt;/strong&gt;, &lt;strong&gt;Logic,&lt;/strong&gt; and **Empathy **and provided points like:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Encouraging the candidates to be themselves (it’s okay not to know everything and some areas can be taught).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;She was looking for candidates to identify problems and whom that might affect, or to whom might be relevant for (it’s fine if people didn’t know who to get to exactly!).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The best thing candidates may ask “Is this what you had in mind” when an area of the website was taking a very long time to load. Expressing this kind of doubt meant being authentic.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I really liked the reasoning points, the great stories illustrated and I agree that doubt helps us becoming better testers.&lt;/p&gt;
+
+&lt;h1 id=&quot;storytelling-and-software-testing--christian-vogt&quot;&gt;Storytelling and Software Testing — &lt;a href=&quot;https://twitter.com/EisUndDamp&quot;&gt;Christian Vogt&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Christian started by showing pictures: some of them are of films or just pictures. And instantly, we aren’t just seeing the picture, but remembering or imagining the story behind them. &lt;strong&gt;Facts with a story help us to remember them&lt;/strong&gt;. Stories also put us in the situation of a participant which makes us able to experience things, it sticks!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/6072/1*Lj6XcQN7DcCKOkymE5I6uA.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;To get to software testing&lt;/strong&gt;: our customer can be the hero. The call to adventure is to use the software. What does that journey then look like for them? I was confused at first while listening to Christian’s talk and after some reflection, I found out that &lt;strong&gt;testers are always providing facts with a storytelling context in an everyday job&lt;/strong&gt; (e.g. What caused this bug? How to reproduce a bug? How might that affect the user?).&lt;/p&gt;
+
+&lt;p&gt;He also encouraged to use storyboards where each little picture helps to tell a user journey.&lt;/p&gt;
+
+&lt;h1 id=&quot;testing-for-purpose--ravneet-kaur&quot;&gt;Testing for Purpose — &lt;a href=&quot;https://twitter.com/ravneetkj&quot;&gt;Ravneet Kaur&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;We do need purpose. Ravneet asked why we develop software at all?. Answers are &lt;strong&gt;“to solve a problem”&lt;/strong&gt; or &lt;strong&gt;“to make people’s life easier”&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;She summed up: we’re trying to change the world for the better. And yet, a lot of the time we end up developing products and features that no one wants. She mentioned the &lt;strong&gt;well-known figure of 65% of features not being used&lt;/strong&gt; most of the time citing examples of failed projects (e.g. &lt;a href=&quot;https://www.youtube.com/watch?v=4EvNxWhskf8&quot;&gt;Google Glass&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/watch?v=X1oHp-VvhDE&quot;&gt;Juicero&lt;/a&gt;, etc…)&lt;/p&gt;
+
+&lt;p&gt;So how do we avoid making products and services that no one wants? &lt;strong&gt;We need a culture of experimentation&lt;/strong&gt;. Software development is inherently uncertain. We make plans, have long meetings. And these plans and meetings are inconclusive. We should be out there experimenting and testing.&lt;/p&gt;
+
+&lt;p&gt;How can we create a culture of experimentation? There are three questions:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Should we build it? Does it matter?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Is it usable?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Does it break?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The first two questions are quite tricky but the answer is &lt;strong&gt;Minimal Viable Product&lt;/strong&gt;. This surely doesn’t have to be a v1.0, it doesn’t have to contain a single line of code. It was really enlightening to talk and I could definitely relate to that. I have previously worked in a product where most of the features aren’t used and eventually it became obsolete.&lt;/p&gt;
+
+&lt;h1 id=&quot;how-to-scale-mobile-testing-across-several-teams--daniel-knott&quot;&gt;How to Scale Mobile Testing Across Several Teams — &lt;a href=&quot;https://twitter.com/dnlkntt&quot;&gt;Daniel Knott&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Daniel is a well-known mobile expert, speaker at various conferences in Europe and this was my favorite talk 🤓 He talked about the &lt;strong&gt;history of mobile technology, how did it change our life?&lt;/strong&gt; and how companies like &lt;a href=&quot;https://www.xing.com/en&quot;&gt;&lt;strong&gt;&lt;em&gt;XING&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt; had to develop strategies to keep up the pace. He mentioned the challenges they were facing in scalability. The pace of development from the web teams just couldn’t be matched by the mobile teams and once the mobile usage exceeded web hits, the company needed to come up with a new initiative — mobile unleashing but there were more challenges along the way.&lt;/p&gt;
+
+&lt;p&gt;First thing is to get away from “web thinking”, and the next problem was “hiring”, communication was also an overhead challenge. The pace of development means that a lot needs to be clarified. (e.g. Face to face, Slack, Github — whatever channel) and it’s just not possible to just “rollback” a mobile app once it’s shipped. With so many teams, so many challenges like the above, they introduced **Release Trains **which meant planned code freezes, fixed dates, so the train is always on time, if you missed the train, the feature doesn’t go live!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/6072/1*z-6qg9D2eLcW0ziNNoqvbw.jpeg&quot; alt=&quot;Release Train&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;He then gave a walkthrough about some of the challenges faced in test automation, how they overcame it by migrating from Espresso &amp;amp; Keep It Functional to Calabash and release process.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/6072/1*V9Nd8e35XAtPIgt3JlQgwg.jpeg&quot; alt=&quot;Build Pipeline&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It was an awesome talk, most of the challenges mentioned I could relate to and we happily overcame most of those challenges at &lt;a href=&quot;https://instabug.com/&quot;&gt;&lt;strong&gt;&lt;em&gt;Instabug&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;. 💪&lt;/p&gt;
+
+&lt;h1 id=&quot;testing-in-production-anti-pattern-or-future-lukasz-raslonek&quot;&gt;Testing in Production: Anti-pattern or Future? &lt;a href=&quot;https://twitter.com/testdetective&quot;&gt;Lukasz Raslonek&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Disclaimer: Something controversial is coming! This was an insightful topic, I have learned ways how to expose your environment and get rapid feedback on how your services work.&lt;/p&gt;
+
+&lt;p&gt;Obviously, Lukasz is not talking about &lt;strong&gt;someone who only checks if anything works once it’s released&lt;/strong&gt;. it’s a bit more than this. It’s about &lt;strong&gt;why would you want to test in production?&lt;/strong&gt; after all, customers use the product in the production environment!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/6072/1*0ZGAkcbxCN8UVcn5lFwNcw.jpeg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lukasz’s first reason is distributed systems. Creating a test system for that is difficult and expensive. Consider &lt;strong&gt;&lt;em&gt;Netflix Service Oriented Architecture.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://cdn-images-1.medium.com/max/1280/1*LQzPd12M_DHJQRAR1y2a4g.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The more complex and distributed your architecture is, the harder it is to maintain your test environment. It’s all fine and well the plenty of test scenarios covered but &lt;strong&gt;there are some situations when you can’t know in advance all the scenarios happening in your production environment&lt;/strong&gt;. He then used the word which I really like &lt;strong&gt;“Unknown unknowns”. **If you are into this word, you can google [&lt;/strong&gt;The Five Orders of Ignorance]**(https://www.researchgate.net/publication/27293624_The_Five_Orders_of_Ignorance).&lt;/p&gt;
+
+&lt;p&gt;It’s like driving a car no matter how an expert in your navigation, there’s always something unpredictable that can happen. Lukasz also gave a walkthrough on how to tackle it.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The first approach is the &lt;strong&gt;Canary Testing&lt;/strong&gt;. When we deploy a new version, we keep the stable version in production too and only divert a small amount of traffic to the new version. We minimize the risk of problems being wide-reaching in this way. (e.g. &lt;a href=&quot;https://code.fb.com/web/rapid-release-at-massive-scale/&quot;&gt;Facebook&lt;/a&gt; uses New Zealand a testing location to analyze logs and metrics to decide whether a feature to be kept or not).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The second approach is &lt;strong&gt;Chaos Engineering&lt;/strong&gt;. This will test the high availability of the production environment by introducing deliberate errors. (e.g. Netflix created a tool “&lt;a href=&quot;https://github.com/Netflix/chaosmonkey&quot;&gt;Chaos Monkey&lt;/a&gt;” that shuts down or reboots random production servers).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The third approach is &lt;strong&gt;Test Automation&lt;/strong&gt;. It’s not a luxury anymore, you may implement test suites in your pre-production environment but it would be also a good idea to execute a smoke test suite in production to ensure that the core features are still operational. On top of that, it’s a way of creating metrics, it’s better to have data of the peak hours and non-peak hours for your services.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Production is not predictable, it’s always unexpected and that’s why we should have different ways of testing and monitoring.&lt;/p&gt;</content><author><name>Ziad</name></author><summary type="html">TL;DR TestBash Munich was awesome! the talks and the people were well worth it and Open Space was even better than I thought it would be. Only 3 talks left (to be updated). Also, Thanks to Instabug for making it happen!</summary></entry></feed>

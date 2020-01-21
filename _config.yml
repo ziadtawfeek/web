@@ -1,0 +1,38 @@
+# Site settings
+title:          Ziad Tawfeek
+description:    "Learning Fanatic | Skeptical | Software Engineer in Test"
+url:            "https://ziadtawfeek.github.io"
+
+# Google Analytics
+google_analytics: UA-156608118-1
+
+# Author
+author:
+  name:         Ziad Tawfeek
+  url:          https://ziadtawfeek.github.io
+
+# Build settings
+markdown:       kramdown
+include:
+  - _pages
+
+# Assets
+sass:
+  sass_dir:     _sass
+  style:        compressed
+
+# Gems
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jemoji #Uncomment this to allow emoji in your post
+
+# Permalinks
+permalink:      /:year-:month-:day/:title
+paginate:       5
+
+# Excludes
+exclude: [ Gemfile, Gemfile.lock, tale.gemspec ]
+
+# Disqus (Set to your disqus id)
+disqus:         jekyll-tale
