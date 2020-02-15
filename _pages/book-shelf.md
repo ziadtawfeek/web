@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Not sorted in any order, the ones in bold mean I highly recommend.
 
+- It Doesn't Have to Be Crazy at Work
 - Ego Is the Enemy
 - **Outliers: The Story of Success**
 - **Hands-On Mobile App Testing: A Guide for Mobile Testers and Anyone Involved in the Mobile App Business**
