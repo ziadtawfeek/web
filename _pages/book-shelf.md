@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Not sorted in any order, the ones in bold mean I highly recommend.
 
+- Man's Search for Meaning
 - It Doesn't Have to Be Crazy at Work
 - Ego Is the Enemy
 - **Outliers: The Story of Success**
@@ -22,7 +23,7 @@ permalink: /book-shelf/
 - The Way of the Superior Man
 - Who Moved My Cheese?
 - How to Win Friends & Influence People
-- Rich Dad Poor Dad: What the Rich Teach Their Kids About Money - That the Poor and Middle Class Do Not!
+- **Rich Dad Poor Dad: What the Rich Teach Their Kids About Money - That the Poor and Middle Class Do Not!**
 - **The Culture Map: Breaking Through the Invisible Boundaries of Global Business**
 - Never Split the Difference: Negotiating as if Your Life Depended on It
 - Thinking, Fast and Slow
