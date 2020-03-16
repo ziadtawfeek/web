@@ -27,3 +27,4 @@ permalink: /book-shelf/
 - **The Culture Map: Breaking Through the Invisible Boundaries of Global Business**
 - Never Split the Difference: Negotiating as if Your Life Depended on It
 - Thinking, Fast and Slow
+- How to Have Confidence and Power in Dealing with People
