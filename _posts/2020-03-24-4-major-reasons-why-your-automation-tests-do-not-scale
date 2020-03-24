@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "4 Major Reasons Why Your Automation Tests Sucks!"
+title:  "4 Major Reasons Why Your Automation Tests Don't Scale!"
 author: "Ziad"
 comments: false
 ---
 
 ## 1. If tests go well, you always question if you are doing it right. If everything doesn't go well, you spend a lot of time to fix it
 
-You know when you have a great automation architecture that you release fast and often, the team is not stressed and releases go smoothly. You release and boom, you need to release a hotfix for a crash. So what do we learn from this? You might be doing an anti-pattern.
+You know when you have a great automation architecture that you release fast and often, the team is not stressed and releases go smoothly. You release and boom, you need to release a hotfix for a bug or a crash that was missed by your tests. So what do we learn from this? You might be doing an anti-pattern.
 
 #### What many teams do?
 [![What many teams do](https://i0.wp.com/saeedgatson.com/wp-content/uploads/2015/10/softwaretestingicecreamconeantipattern.png "What many teams do")](https://i0.wp.com/saeedgatson.com/wp-content/uploads/2015/10/softwaretestingicecreamconeantipattern.png "What many teams do")
