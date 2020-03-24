@@ -19,7 +19,7 @@ You know when you have a great automation architecture that you release fast and
 
 ##  2. Although you automate 100% of what could be automated because you believe manual testing sucks. You aim to catch bugs, provide fast feedback and release confidently but this DOES NOT PREVENT BUGS.
 
-Great tests are designed about how to approach a testing problem, then figure out what’s suitable for automation, and what’s not suitable. Nevertheless, finding the automation line can be a tricky business. Test automation is just one tool from our tester toolbox that we can use to solve a specific set of testing problems and it may not work for everything you want to tackle. You need also to work on how to prevent bad code from getting in your production code, make use of a static analysis tools to check for code smells.
+Great tests are designed about how to approach a testing problem, then figure out what’s suitable for automation, and what’s not suitable. Nevertheless, finding the automation line can be a tricky business. Test automation is just one tool from our tester toolbox that we can use to solve a specific set of testing problems and it may not work for everything you want to tackle. You need also to work on how to prevent bad code from getting in your production code, make use of static analysis tools to check for code smells.
 
 [![Code Smells](https://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg "Code Smells")](hhttps://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg "Code Smells")
 
