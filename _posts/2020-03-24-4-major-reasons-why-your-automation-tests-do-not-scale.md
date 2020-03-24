@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "4 Major Reasons Why Your Automation Tests Don't Scale!"
+title:  "4 Major Reasons Why Your Automation Tests Sucks!"
 author: "Ziad"
 comments: false
 ---
