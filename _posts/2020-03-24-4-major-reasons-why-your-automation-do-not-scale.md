@@ -21,11 +21,11 @@ You know when you have a great automation architecture that you release fast and
 
 Great tests are designed about how to approach a testing problem, then figure out what’s suitable for automation, and what’s not suitable. Nevertheless, finding the automation line can be a tricky business. Test automation is just one tool from our tester toolbox that we can use to solve a specific set of testing problems. You need to work on how to prevent bad code from getting in your production code, make use of a static analysis code to check for code smells.
 
-[![Code Smells](https://lh3.googleusercontent.com/proxy/BOIhnmo00hg0S8xIZFYLRualb1w_8xCdwa6ha6yutEoPk0cINOAMvYjpnjkdYW4LWTpqHicPYLAntpxmkE3yQYwWY62hhARaar2FhGZhGxo30geaXUkPrkWtI2lp5CNKiPaG6w0RaOyXALqWNcgaly4bXUpRmnIii1Y "Code Smells")](https://lh3.googleusercontent.com/proxy/BOIhnmo00hg0S8xIZFYLRualb1w_8xCdwa6ha6yutEoPk0cINOAMvYjpnjkdYW4LWTpqHicPYLAntpxmkE3yQYwWY62hhARaar2FhGZhGxo30geaXUkPrkWtI2lp5CNKiPaG6w0RaOyXALqWNcgaly4bXUpRmnIii1Y "Code Smells")
+[![Code Smells](https://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg "Code Smells")](hhttps://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg "Code Smells")
 
 ------------
 
-## 3. 10K automated tests are better than 0 automated tests. Maybe that's right but are they flaky?
+## 3. 10 automated tests are better than 0 automated tests. Maybe that's right but are they flaky?
 
 Flaky tests are worse than no tests in my opinion and you should attack it once faced, that's should be everyone's priority or it could be moved to the backlog for the next 2 years! Assume a zero-tolerance culture on flakiness.
 
