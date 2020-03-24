@@ -27,7 +27,7 @@ Great tests are designed about how to approach a testing problem, then figure ou
 
 ## 3. 10 automated tests are better than 0 automated tests. Maybe that's right but are they flaky?
 
-Flaky tests are worse than no tests in my opinion and you should attack it once faced, that's should be everyone's priority or it could be moved to the backlog for the next 2 years! Assume a zero-tolerance culture on flakiness.
+Flaky tests are worse than no tests in my opinion and you should attack it once faced, that's should be everyone's priority or it could be moved to the backlog for the next 2 months! Assume a zero-tolerance culture on flakiness.
 
 ------------
 
