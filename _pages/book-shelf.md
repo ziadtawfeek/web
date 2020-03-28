@@ -7,7 +7,11 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Not sorted in any order, the ones in bold mean I highly recommend.
 
+- Never Split the Difference: Negotiating as if Your Life Depended on It
+- **The Culture Map: Breaking Through the Invisible Boundaries of Global Business**
+- Thinking, Fast and Slow
 - **Lost and Founder: A Painfully Honest Field Guide to the Startup World**
+- How to Have Confidence and Power in Dealing with People
 - Man's Search for Meaning
 - It Doesn't Have to Be Crazy at Work
 - Ego Is the Enemy
@@ -25,7 +29,3 @@ permalink: /book-shelf/
 - Who Moved My Cheese?
 - How to Win Friends & Influence People
 - **Rich Dad Poor Dad: What the Rich Teach Their Kids About Money - That the Poor and Middle Class Do Not!**
-- **The Culture Map: Breaking Through the Invisible Boundaries of Global Business**
-- Never Split the Difference: Negotiating as if Your Life Depended on It
-- Thinking, Fast and Slow
-- How to Have Confidence and Power in Dealing with People
