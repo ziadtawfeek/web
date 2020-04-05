@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Not sorted in any order, the ones in bold mean I highly recommend.
 
+- Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones
 - Never Split the Difference: Negotiating as if Your Life Depended on It
 - **The Culture Map: Breaking Through the Invisible Boundaries of Global Business**
 - Thinking, Fast and Slow
