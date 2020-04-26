@@ -9,9 +9,9 @@ comments: false
 
 At the time of the writing, COVID-19 cases have exceeded more than 2.5 million and are increasing around the world. To reduce growth, governments have moved to stricter social distancing with "shelters in place" orders in many areas around the globe.
 
-If you are feeling paralyzed and you have plans in mind, read on and this may help on tricking your mind into adapting a thinking methodology to navigate these stressful times!
+If you are feeling paralyzed, have plans in mind which you can't no longer do, read on and this may help on tricking your mind into adapting a thinking methodology to navigate these stressful times.
 
-**When facing such a disaster, people tend to resort to two behaviors:**
+**When facing such a disaster, people tend to resort to behaviors:**
 
 - Optimism bias and over-reliance on past patterns (e.g. believing things will be sorted out soon although there is no relief on sight and a vaccine is still a long way to go)
 - Slow or bad decisions (e.g. unfamiliarity of the situation leads to a desire to wait for more facts which results on disappointments and delayed responses)
@@ -30,6 +30,4 @@ Under high levels of uncertainty, you need to think fast and adapt!
 
 - Ups and downs always occur through history, every-time it felt like the world is about to end (i.e. at least what is written on books)
 - Recovery will be long and may take some time!
-- Survival of the resilient
-
-[https://twitter.com/HarryStebbings/status/1254166350978789382?s=20](https://twitter.com/HarryStebbings/status/1254166350978789382?s=20)
+- Survival of the resilient [https://twitter.com/HarryStebbings/status/1254166350978789382?s=20](https://twitter.com/HarryStebbings/status/1254166350978789382?s=20)
