@@ -30,4 +30,4 @@ Under high levels of uncertainty, you need to think fast and adapt!
 
 - Ups and downs always occur through history, every-time it felt like the world is about to end (i.e. at least what is written on books)
 - Recovery will be long and may take some time!
-- Survival of the resilient [https://twitter.com/HarryStebbings/status/1254166350978789382?s=20](https://twitter.com/HarryStebbings/status/1254166350978789382?s=20)
+- Survival of the resilient <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Just got out Uber &amp; driver was making 95% less money than pre COVID. <br><br>So in 4 weeks she learned <a href="https://twitter.com/webflow?ref_src=twsrc%5Etfw">@webflow</a> &amp; is now making websites for largely personal trainers and online tutors. <br><br>She now makes 2x more than she did driving. <br><br>Always be amazed by human resiliency. Inspiring. 👍</p>&mdash; Harry Stebbings (@HarryStebbings) <a href="https://twitter.com/HarryStebbings/status/1254166350978789382?ref_src=twsrc%5Etfw">April 25, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
