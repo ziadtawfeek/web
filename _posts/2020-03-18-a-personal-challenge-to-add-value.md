@@ -5,7 +5,7 @@ author: "Ziad"
 comments: false
 ---
 
-**For months, there was speculation about how the economic situation is going to grim that some fear may be as bad as the 1918 crisis and that is the case with COVID-19 hitting the globe. I think now more than ever we need to support each other**. We are all affected together, certainly, but you can't do much about that to stay at home and try to flatten the curve.
+**For months, there was speculation about how the economic situation is going to grim that some fear may be as bad as the 1928 crisis and that is the case with COVID-19 hitting the globe. I think now more than ever we need to support each other**. We are all affected together, certainly, but you can't do much about that to stay at home and try to flatten the curve.
 
 So, I had to stop thinking of the aftermath, take my mind off that, do something productive and write this blog!
 
