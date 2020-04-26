@@ -16,7 +16,7 @@ If you are feeling paralyzed, have plans in mind which you can't no longer do, r
 - Optimism bias and over-reliance on past patterns (e.g. believing things will be sorted out soon although there is no relief on sight and a vaccine is still a long way to go)
 - Slow or bad decisions (e.g. unfamiliarity of the situation leads to a desire to wait for more facts which results on disappointments and delayed responses)
 
-How can I deal with uncertainty and not let it affect you drastically?
+How can I deal with uncertainty and not let it affect me drastically?
 
 The best way to do that is to confront the uncertainty with some course of actions:
 
