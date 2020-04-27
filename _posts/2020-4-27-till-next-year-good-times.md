@@ -19,7 +19,7 @@ If you are feeling paralyzed, have plans in mind which you can't no longer do, r
 **How can I deal with uncertainty and not let it affect me drastically?**
 The best way to do that is to confront the uncertainty with some course of actions:
 
-1. Get a real view of how the world is changing around you (e.g. it's here to stay for some time)
+1. Get a real view of how the world is changing around you (e.g. Uncertainity is here to stay for some time, deal with it)
 2. Think of time-boxed scenarios and multiple versions of what can happen to confront uncertainty (e.g.  1-2 months, 1-2 quarters, 1-2 years, next normal?)
 3. Adapt your actions and moves among these scenarios above (e.g. deterministic plan won’t be right for very long. But making everything flexible can be a path to nowhere. You need to think about moves that you can make across all likely scenarios, even if every move isn’t a winner on its own)
 
