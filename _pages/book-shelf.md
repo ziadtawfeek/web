@@ -5,7 +5,7 @@ author: "Ziad"
 permalink: /book-shelf/
 ---
 
-### This is the list of books in my library that I read or partially read recently. Not sorted in any order, the ones in bold mean I highly recommend.
+### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
 - Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones
 - Never Split the Difference: Negotiating as if Your Life Depended on It
