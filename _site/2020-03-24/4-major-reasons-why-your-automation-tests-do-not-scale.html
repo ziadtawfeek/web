@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>4 Major Reasons Why Your Automation Tests Sucks! | Ziad Tawfeek</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="4 Major Reasons Why Your Automation Tests Sucks!" />
+<meta name="author" content="Ziad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="1. If tests go well, you always question if you are doing it right. If everything doesn’t go well, you spend a lot of time to fix it" />
+<meta property="og:description" content="1. If tests go well, you always question if you are doing it right. If everything doesn’t go well, you spend a lot of time to fix it" />
+<link rel="canonical" href="http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale" />
+<meta property="og:url" content="http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale" />
+<meta property="og:site_name" content="Ziad Tawfeek" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-24T00:00:00+02:00" />
+<script type="application/ld+json">
+{"description":"1. If tests go well, you always question if you are doing it right. If everything doesn’t go well, you spend a lot of time to fix it","headline":"4 Major Reasons Why Your Automation Tests Sucks!","dateModified":"2020-03-24T00:00:00+02:00","datePublished":"2020-03-24T00:00:00+02:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale"},"url":"http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale","author":{"@type":"Person","name":"Ziad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/">
+      <h2 class="nav-title">Ziad Tawfeek</h2>
+    </a>
+    <ul>
+      <li><a href="/">Posts</a></li>
+      <li><a href="/book-shelf">Book Shelf</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        Ziad
+    
+
+    
+      <br>
+      <span>on&nbsp;</span><time datetime="2020-03-24 00:00:00 +0200">March 24, 2020</time>
+    
+  </div>
+
+  <h1 class="post-title">4 Major Reasons Why Your Automation Tests Sucks!</h1>
+  <div class="post-line"></div>
+
+  <h2 id="1-if-tests-go-well-you-always-question-if-you-are-doing-it-right-if-everything-doesnt-go-well-you-spend-a-lot-of-time-to-fix-it">1. If tests go well, you always question if you are doing it right. If everything doesn’t go well, you spend a lot of time to fix it</h2>
+
+<p>You know when you have a great automation architecture that you release fast and often, the team is not stressed and releases go smoothly. You release and boom, you need to release a hotfix for a bug or a crash that was missed by your tests. So what do we learn from this? You might be doing an anti-pattern.</p>
+
+<h4 id="what-many-teams-do">What many teams do?</h4>
+<p><a href="https://i0.wp.com/saeedgatson.com/wp-content/uploads/2015/10/softwaretestingicecreamconeantipattern.png" title="What many teams do"><img src="https://i0.wp.com/saeedgatson.com/wp-content/uploads/2015/10/softwaretestingicecreamconeantipattern.png" alt="What many teams do" title="What many teams do" /></a></p>
+
+<h4 id="how-it-should-be-done">How it should be done?</h4>
+<p><a href="https://watirmelon.files.wordpress.com/2018/02/ideal-automated-testing-pyramid.jpg" title="How it should be done?"><img src="https://watirmelon.files.wordpress.com/2018/02/ideal-automated-testing-pyramid.jpg" alt="How it should be done?" title="How it should be done?" /></a></p>
+
+<hr />
+
+<h2 id="2-although-you-automate-100-of-what-could-be-automated-because-you-believe-manual-testing-sucks-you-aim-to-catch-bugs-provide-fast-feedback-and-release-confidently-but-this-does-not-prevent-bugs">2. Although you automate 100% of what could be automated because you believe manual testing sucks. You aim to catch bugs, provide fast feedback and release confidently but this DOES NOT PREVENT BUGS.</h2>
+
+<p>Great tests are designed about how to approach a testing problem, then figure out what’s suitable for automation, and what’s not suitable. Nevertheless, finding the automation line can be a tricky business. Test automation is just one tool from our tester toolbox that we can use to solve a specific set of testing problems and it may not work for everything you want to tackle. You need also to work on how to prevent bad code from getting in your production code, make use of static analysis tools to check for code smells.</p>
+
+<p><a href="hhttps://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg" title="Code Smells"><img src="https://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg" alt="Code Smells" title="Code Smells" /></a></p>
+
+<hr />
+
+<h2 id="3-10-automated-tests-are-better-than-0-automated-tests-maybe-thats-right-but-are-they-flaky">3. 10 automated tests are better than 0 automated tests. Maybe that’s right but are they flaky?</h2>
+
+<p>Flaky tests are worse than no tests in my opinion and you should attack it once faced, that’s should be everyone’s priority or it could be moved to the backlog for the next 2 months! Assume a zero-tolerance culture on flakiness.</p>
+
+<hr />
+
+<h2 id="4-code-coverage-may-be-queen-but-test-design-is-king">4. Code coverage may be queen but test design is KING!</h2>
+
+<p>Basic verification that would be hit by anyone walking through the basics of the application isn’t worth much. However, if your automation takes advantage of automation – meaning that loops, randomness, input variations, and loads of other ideas are part of the automation approach.</p>
+
+</div>
+
+
+
+<div class="pagination">
+  
+    <a href="/2020-04-27/till-next-year-good-times" class="left arrow">&#8592;</a>
+  
+  
+    <a href="/2020-03-18/a-personal-challenge-to-add-value" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2020-05-02 20:40:28 +0200">2020</time> Ziad Tawfeek. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>

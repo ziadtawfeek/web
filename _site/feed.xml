@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-01-21T23:13:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ziad Tawfeek</title><subtitle>Learning Fanatic | Skeptical | Software Engineer in Test</subtitle><author><name>Ziad Tawfeek</name></author><entry><title type="html">Things I learned at TestBash Munich 2018 #OKTOBERTEST</title><link href="http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018-oktobertest" rel="alternate" type="text/html" title="Things I learned at TestBash Munich 2018 #OKTOBERTEST" /><published>2018-09-29T00:00:00+02:00</published><updated>2018-09-29T00:00:00+02:00</updated><id>http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018%20-#oktobertest</id><content type="html" xml:base="http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018-oktobertest">&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt; &lt;strong&gt;TestBash Munich&lt;/strong&gt; was awesome! the talks and the people were well worth it and &lt;strong&gt;Open Space&lt;/strong&gt; was even better than I thought it would be. Only 3 talks left (to be updated). Also, Thanks to &lt;a href=&quot;https://instabug.com/&quot;&gt;&lt;strong&gt;Instabug&lt;/strong&gt;&lt;/a&gt; for making it happen!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-02T20:40:28+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ziad Tawfeek</title><subtitle>Learning Fanatic | Skeptical | Software Engineer in Test</subtitle><author><name>Ziad Tawfeek</name></author><entry><title type="html">Flaky Tests Explained: Why it happens and What should we control?</title><link href="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control" rel="alternate" type="text/html" title="Flaky Tests Explained: Why it happens and What should we control?" /><published>2020-04-30T00:00:00+02:00</published><updated>2020-04-30T00:00:00+02:00</updated><id>http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control</id><content type="html" xml:base="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control">&lt;p&gt;&lt;a href=&quot;https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=4800&amp;amp;q=80&quot;&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=4800&amp;amp;q=80&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;An important assumption of regression testing is that test outcomes are deterministic: an unmodified test is expected to either always pass or always fail for the same code under test. Unfortunately, in practice, some tests—often called flaky tests*—have non-deterministic outcomes. Such tests undermine the regression testing as they make it difficult to rely on test results.&lt;/p&gt;
+
+&lt;p&gt;*flaky means unreliable.&lt;/p&gt;
+
+&lt;p&gt;Some approaches I have seen to tackle flaky tests are rather not good enough. The most common approaches I have seen:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Run a flaky test multiple times&lt;/strong&gt; , and if it passes in any run, declare it passing, even if it fails in several other runs. For example, the process we have at my most recent employer, a failing test is rerun at least 3 times against the same code version on which it previously failed, and if it fails in an of those 3 reruns, &lt;strong&gt;it is labeled as a flaky test&lt;/strong&gt;. Some open-source testing frameworks also have annotations (e.g. Android has &lt;strong&gt;@FlakyTest&lt;/strong&gt;, Jenkins has &lt;strong&gt;@RandomFail&lt;/strong&gt;) to label flaky tests that require a few reruns upon failure.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Remove flaky tests from the test suite&lt;/strong&gt;, or to mentally ignore their results most of the
+time (in the limit, ignoring the failure every time is equivalent to removing the test). In &lt;strong&gt;JUnit&lt;/strong&gt; the &lt;strong&gt;@Ignore&lt;/strong&gt; annotation is used to exclude a test from the test suite to be run. Needless to say this is a very dangerous approach and an invitation to miss out bugs on your codebase and it spreads low-confidence on the tests among your team!&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The thing is not any of the above approaches really address the problem or root causes of flaky tests, it’s mostly workarounds and some mitigation patterns to keep the wheel running.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Flaky tests root causes:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Occasionally flaky tests are resulted either from the application codebase or the first time it was written&lt;/li&gt;
+  &lt;li&gt;Synchronization between tests, actions inside each test account for a relative percentage for test flakiness&lt;/li&gt;
+  &lt;li&gt;Test Order Dependency  where tests are dependent on each other during execution&lt;/li&gt;
+  &lt;li&gt;Concurrency and threading where tests use background and main threads which sometimes produce some unpredictability among the tests&lt;/li&gt;
+  &lt;li&gt;Memory leaks, time and IO operations could also be an issue&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;How should we fix causes of flaky tests?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There is no perfect solution or one size fits all but you can start with the following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;Synchronization&lt;/strong&gt;: address the order violation between different threads or processes in the application under test&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Concurrency&lt;/strong&gt;: introduce asynchronous processes if you can without affecting codebase to ensure tests are supposed to be accessed by one thread at a time and make processes in test more deterministic.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Network&lt;/strong&gt;: the best fixes for this category is to use mocks. Whenever the use
+of mocks is non practical, fallback to synchronization&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Randomness&lt;/strong&gt;: always run tests in random order, include random data within your tests as well but don’t let it be unpredictable in your tests.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;There is still flaky tests, how should we deal with that?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Again, no perfect solution here but you can try the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Run until it passes!&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Quarantine and fix&lt;/strong&gt; (e.g. mark down flaky tests as you go, quarantine it and once you have the chance go fix them!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s keep the conversation going! Do you have any interesting flaky test stories? What is your team’s approach for dealing with the problem?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;References:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://circleci.com/blog/using-insights-to-discover-flaky-slow-and-failed-tests/&quot;&gt;CircleCI: Using Insights to Discover Flaky, Slow, and Failed Tests&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://martinfowler.com/articles/nonDeterminism.html&quot;&gt;Eradicating Non-Determinism in Tests by Martin Fowler&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html&quot;&gt;Google Testing Blog: Where do our flaky tests come from?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Ziad</name></author><summary type="html"></summary></entry><entry><title type="html">Till next year, good times!</title><link href="http://localhost:4000/2020-04-27/till-next-year-good-times" rel="alternate" type="text/html" title="Till next year, good times!" /><published>2020-04-27T00:00:00+02:00</published><updated>2020-04-27T00:00:00+02:00</updated><id>http://localhost:4000/2020-04-27/till-next-year-good-times</id><content type="html" xml:base="http://localhost:4000/2020-04-27/till-next-year-good-times">&lt;p&gt;&lt;strong&gt;NOW WHAT?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;At the time of the writing, COVID-19 cases have exceeded more than 2.5 million and are increasing around the world. To reduce growth, governments have moved to stricter social distancing with “shelters in place” orders in many areas around the globe.&lt;/p&gt;
+
+&lt;p&gt;If you are feeling paralyzed, have plans in mind which you can’t no longer do, read on and this may help on tricking your mind into adapting a thinking methodology to navigate these stressful times.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;When facing such a disaster, people tend to resort to behaviors:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Optimism bias and over-reliance on past patterns (e.g. believing things will be sorted out soon although there is no relief on sight and a vaccine is still a long way to go)&lt;/li&gt;
+  &lt;li&gt;Slow or bad decisions (e.g. unfamiliarity of the situation leads to a desire to wait for more facts which results on disappointments and delayed responses)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;How can I deal with uncertainty and not let it affect me drastically?&lt;/strong&gt;
+The best way to do that is to confront the uncertainty with some course of actions:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Get a real view of how the world is changing around you (e.g. Uncertainity is here to stay for some time, deal with it)&lt;/li&gt;
+  &lt;li&gt;Think of time-boxed scenarios and multiple versions of what can happen to confront uncertainty (e.g.  1-2 months, 1-2 quarters, 1-2 years, next normal?)&lt;/li&gt;
+  &lt;li&gt;Adapt your actions and moves among these scenarios above (e.g. deterministic plan won’t be right for very long. But making everything flexible can be a path to nowhere. You need to think about moves that you can make across all likely scenarios, even if every move isn’t a winner on its own)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Under high levels of uncertainty, you need to think fast and adapt!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WHERE DO WE GO FROM HERE?&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Ups and downs always occur through history, every-time it felt like the world is about to end (i.e. at least what is written on books)&lt;/li&gt;
+  &lt;li&gt;Recovery will be long and may take some time!&lt;/li&gt;
+  &lt;li&gt;Survival of the resilient&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Just got out Uber &amp;amp; driver was making 95% less money than pre COVID. &lt;br /&gt;&lt;br /&gt;So in 4 weeks she learned &lt;a href=&quot;https://twitter.com/webflow?ref_src=twsrc%5Etfw&quot;&gt;@webflow&lt;/a&gt; &amp;amp; is now making websites for largely personal trainers and online tutors. &lt;br /&gt;&lt;br /&gt;She now makes 2x more than she did driving. &lt;br /&gt;&lt;br /&gt;Always be amazed by human resiliency. Inspiring. 👍&lt;/p&gt;&amp;mdash; Harry Stebbings (@HarryStebbings) &lt;a href=&quot;https://twitter.com/HarryStebbings/status/1254166350978789382?ref_src=twsrc%5Etfw&quot;&gt;April 25, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name>Ziad</name></author><summary type="html">NOW WHAT?</summary></entry><entry><title type="html">4 Major Reasons Why Your Automation Tests Sucks!</title><link href="http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale" rel="alternate" type="text/html" title="4 Major Reasons Why Your Automation Tests Sucks!" /><published>2020-03-24T00:00:00+02:00</published><updated>2020-03-24T00:00:00+02:00</updated><id>http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale</id><content type="html" xml:base="http://localhost:4000/2020-03-24/4-major-reasons-why-your-automation-tests-do-not-scale">&lt;h2 id=&quot;1-if-tests-go-well-you-always-question-if-you-are-doing-it-right-if-everything-doesnt-go-well-you-spend-a-lot-of-time-to-fix-it&quot;&gt;1. If tests go well, you always question if you are doing it right. If everything doesn’t go well, you spend a lot of time to fix it&lt;/h2&gt;
+
+&lt;p&gt;You know when you have a great automation architecture that you release fast and often, the team is not stressed and releases go smoothly. You release and boom, you need to release a hotfix for a bug or a crash that was missed by your tests. So what do we learn from this? You might be doing an anti-pattern.&lt;/p&gt;
+
+&lt;h4 id=&quot;what-many-teams-do&quot;&gt;What many teams do?&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://i0.wp.com/saeedgatson.com/wp-content/uploads/2015/10/softwaretestingicecreamconeantipattern.png&quot; title=&quot;What many teams do&quot;&gt;&lt;img src=&quot;https://i0.wp.com/saeedgatson.com/wp-content/uploads/2015/10/softwaretestingicecreamconeantipattern.png&quot; alt=&quot;What many teams do&quot; title=&quot;What many teams do&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;how-it-should-be-done&quot;&gt;How it should be done?&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://watirmelon.files.wordpress.com/2018/02/ideal-automated-testing-pyramid.jpg&quot; title=&quot;How it should be done?&quot;&gt;&lt;img src=&quot;https://watirmelon.files.wordpress.com/2018/02/ideal-automated-testing-pyramid.jpg&quot; alt=&quot;How it should be done?&quot; title=&quot;How it should be done?&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;2-although-you-automate-100-of-what-could-be-automated-because-you-believe-manual-testing-sucks-you-aim-to-catch-bugs-provide-fast-feedback-and-release-confidently-but-this-does-not-prevent-bugs&quot;&gt;2. Although you automate 100% of what could be automated because you believe manual testing sucks. You aim to catch bugs, provide fast feedback and release confidently but this DOES NOT PREVENT BUGS.&lt;/h2&gt;
+
+&lt;p&gt;Great tests are designed about how to approach a testing problem, then figure out what’s suitable for automation, and what’s not suitable. Nevertheless, finding the automation line can be a tricky business. Test automation is just one tool from our tester toolbox that we can use to solve a specific set of testing problems and it may not work for everything you want to tackle. You need also to work on how to prevent bad code from getting in your production code, make use of static analysis tools to check for code smells.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;hhttps://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg&quot; title=&quot;Code Smells&quot;&gt;&lt;img src=&quot;https://miro.medium.com/max/450/1*HuRYehHuKag-ZnU0CP3JTg.jpeg&quot; alt=&quot;Code Smells&quot; title=&quot;Code Smells&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;3-10-automated-tests-are-better-than-0-automated-tests-maybe-thats-right-but-are-they-flaky&quot;&gt;3. 10 automated tests are better than 0 automated tests. Maybe that’s right but are they flaky?&lt;/h2&gt;
+
+&lt;p&gt;Flaky tests are worse than no tests in my opinion and you should attack it once faced, that’s should be everyone’s priority or it could be moved to the backlog for the next 2 months! Assume a zero-tolerance culture on flakiness.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;4-code-coverage-may-be-queen-but-test-design-is-king&quot;&gt;4. Code coverage may be queen but test design is KING!&lt;/h2&gt;
+
+&lt;p&gt;Basic verification that would be hit by anyone walking through the basics of the application isn’t worth much. However, if your automation takes advantage of automation – meaning that loops, randomness, input variations, and loads of other ideas are part of the automation approach.&lt;/p&gt;</content><author><name>Ziad</name></author><summary type="html">1. If tests go well, you always question if you are doing it right. If everything doesn’t go well, you spend a lot of time to fix it</summary></entry><entry><title type="html">A Personal Challenge To Add Value #COVID19</title><link href="http://localhost:4000/2020-03-18/a-personal-challenge-to-add-value" rel="alternate" type="text/html" title="A Personal Challenge To Add Value  #COVID19" /><published>2020-03-18T00:00:00+02:00</published><updated>2020-03-18T00:00:00+02:00</updated><id>http://localhost:4000/2020-03-18/a-personal-challenge-to-add-value</id><content type="html" xml:base="http://localhost:4000/2020-03-18/a-personal-challenge-to-add-value">&lt;p&gt;&lt;strong&gt;For months, there was speculation about how the economic situation is going to grim that some fear may be as bad as the 1928 crisis and that is the case with COVID-19 hitting the globe. I think now more than ever we need to support each other&lt;/strong&gt;. We are all affected together, certainly, but you can’t do much about that to stay at home and try to flatten the curve.&lt;/p&gt;
+
+&lt;p&gt;So, I had to stop thinking of the aftermath, take my mind off that, do something productive and write this blog!&lt;/p&gt;
+
+&lt;p&gt;Day-to-day. What matters is who you are, and how do you react to bad times. If you’re the right sort of person, you’ll find a way to win even in a bad economy. And if you’re not, a good economy won’t save you.&lt;/p&gt;
+
+&lt;p&gt;When we started to co-organize Ministry of Testing Cario, I always wondered about how do Software Testers in Egypt support each other outside of their workplace, I felt an unease that we have not so many communities around and no perfect place to cooperate where you can be around like-minded professionals of the same craft in a venue. That’s why we started co-organizing Ministry of Testing Cairo meetups. I always thought that if you have a knowledge that might make life easier, you are obliged to share it and how this will make a difference to your community and network.&lt;/p&gt;
+
+&lt;p&gt;Since social life has been halted and these are hard times for everyone, we should strive on how to empower each other now more than ever for what’s coming ahead :muscle:&lt;/p&gt;
+
+&lt;h4 id=&quot;thats-why-im-setting-a-daily-challenge-on-how-i-can-try-to-add-value-to-my-network-i-enjoy-supporting-mentoring-and-below-what-i-can-help-you-with&quot;&gt;That’s why I’m setting a daily challenge on how I can try to add value to my network. I enjoy supporting, mentoring and below what I can help you with:&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;Mobile Apps Testing Strategy&lt;/li&gt;
+  &lt;li&gt;Automation Frameworks/Best Practices/Trends&lt;/li&gt;
+  &lt;li&gt;Public Speaking&lt;/li&gt;
+  &lt;li&gt;Career Advice&lt;/li&gt;
+  &lt;li&gt;Anything top off your mind.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s grab a coffee and meet remotely for an hour :coffee: Feel free to drop me a message here :point_right: :inbox_tray: &lt;a href=&quot;https://ziadtawfeek.typeform.com/to/Yriu8h&quot; title=&quot;https://ziadtawfeek.typeform.com/to/Yriu8h&quot;&gt;https://ziadtawfeek.typeform.com/to/Yriu8h&lt;/a&gt; and I will reach out to you to discuss anything in your mind.&lt;/p&gt;
+
+&lt;h4 id=&quot;staysafe-togetherathome&quot;&gt;#StaySafe #TogetherAtHome&lt;/h4&gt;</content><author><name>Ziad</name></author><summary type="html">For months, there was speculation about how the economic situation is going to grim that some fear may be as bad as the 1928 crisis and that is the case with COVID-19 hitting the globe. I think now more than ever we need to support each other. We are all affected together, certainly, but you can’t do much about that to stay at home and try to flatten the curve.</summary></entry><entry><title type="html">Things I learned at TestBash Munich 2018 #OKTOBERTEST</title><link href="http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018-oktobertest" rel="alternate" type="text/html" title="Things I learned at TestBash Munich 2018 #OKTOBERTEST" /><published>2018-09-29T00:00:00+02:00</published><updated>2018-09-29T00:00:00+02:00</updated><id>http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018%20-#oktobertest</id><content type="html" xml:base="http://localhost:4000/2018-09-29/things-i-learned-at-testbash-munich-2018-oktobertest">&lt;p&gt;&lt;strong&gt;TL;DR&lt;/strong&gt; &lt;strong&gt;TestBash Munich&lt;/strong&gt; was awesome! the talks and the people were well worth it and &lt;strong&gt;Open Space&lt;/strong&gt; was even better than I thought it would be. Only 3 talks left (to be updated). Also, Thanks to &lt;a href=&quot;https://instabug.com/&quot;&gt;&lt;strong&gt;Instabug&lt;/strong&gt;&lt;/a&gt; for making it happen!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;…&lt;/strong&gt;&lt;/p&gt;
 

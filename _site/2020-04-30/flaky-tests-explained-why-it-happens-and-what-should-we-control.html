@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Flaky Tests Explained: Why it happens and What should we control? | Ziad Tawfeek</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Flaky Tests Explained: Why it happens and What should we control?" />
+<meta name="author" content="Ziad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learning Fanatic Skeptical Software Engineer in Test" />
+<meta property="og:description" content="Learning Fanatic Skeptical Software Engineer in Test" />
+<link rel="canonical" href="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control" />
+<meta property="og:url" content="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control" />
+<meta property="og:site_name" content="Ziad Tawfeek" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-30T00:00:00+02:00" />
+<script type="application/ld+json">
+{"description":"Learning Fanatic Skeptical Software Engineer in Test","headline":"Flaky Tests Explained: Why it happens and What should we control?","dateModified":"2020-04-30T00:00:00+02:00","datePublished":"2020-04-30T00:00:00+02:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control"},"url":"http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control","author":{"@type":"Person","name":"Ziad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/">
+      <h2 class="nav-title">Ziad Tawfeek</h2>
+    </a>
+    <ul>
+      <li><a href="/">Posts</a></li>
+      <li><a href="/book-shelf">Book Shelf</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        Ziad
+    
+
+    
+      <br>
+      <span>on&nbsp;</span><time datetime="2020-04-30 00:00:00 +0200">April 30, 2020</time>
+    
+  </div>
+
+  <h1 class="post-title">Flaky Tests Explained: Why it happens and What should we control?</h1>
+  <div class="post-line"></div>
+
+  <p><a href="https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=4800&amp;q=80"><img src="https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=4800&amp;q=80" alt="" /></a></p>
+
+<p>An important assumption of regression testing is that test outcomes are deterministic: an unmodified test is expected to either always pass or always fail for the same code under test. Unfortunately, in practice, some tests—often called flaky tests*—have non-deterministic outcomes. Such tests undermine the regression testing as they make it difficult to rely on test results.</p>
+
+<p>*flaky means unreliable.</p>
+
+<p>Some approaches I have seen to tackle flaky tests are rather not good enough. The most common approaches I have seen:</p>
+
+<ol>
+  <li><strong>Run a flaky test multiple times</strong> , and if it passes in any run, declare it passing, even if it fails in several other runs. For example, the process we have at my most recent employer, a failing test is rerun at least 3 times against the same code version on which it previously failed, and if it fails in an of those 3 reruns, <strong>it is labeled as a flaky test</strong>. Some open-source testing frameworks also have annotations (e.g. Android has <strong>@FlakyTest</strong>, Jenkins has <strong>@RandomFail</strong>) to label flaky tests that require a few reruns upon failure.</li>
+  <li><strong>Remove flaky tests from the test suite</strong>, or to mentally ignore their results most of the
+time (in the limit, ignoring the failure every time is equivalent to removing the test). In <strong>JUnit</strong> the <strong>@Ignore</strong> annotation is used to exclude a test from the test suite to be run. Needless to say this is a very dangerous approach and an invitation to miss out bugs on your codebase and it spreads low-confidence on the tests among your team!</li>
+</ol>
+
+<p>The thing is not any of the above approaches really address the problem or root causes of flaky tests, it’s mostly workarounds and some mitigation patterns to keep the wheel running.</p>
+
+<p><strong>Flaky tests root causes:</strong></p>
+
+<ol>
+  <li>Occasionally flaky tests are resulted either from the application codebase or the first time it was written</li>
+  <li>Synchronization between tests, actions inside each test account for a relative percentage for test flakiness</li>
+  <li>Test Order Dependency  where tests are dependent on each other during execution</li>
+  <li>Concurrency and threading where tests use background and main threads which sometimes produce some unpredictability among the tests</li>
+  <li>Memory leaks, time and IO operations could also be an issue</li>
+</ol>
+
+<p><strong>How should we fix causes of flaky tests?</strong></p>
+
+<p>There is no perfect solution or one size fits all but you can start with the following:</p>
+
+<ol>
+  <li><strong>Synchronization</strong>: address the order violation between different threads or processes in the application under test</li>
+  <li><strong>Concurrency</strong>: introduce asynchronous processes if you can without affecting codebase to ensure tests are supposed to be accessed by one thread at a time and make processes in test more deterministic.</li>
+  <li><strong>Network</strong>: the best fixes for this category is to use mocks. Whenever the use
+of mocks is non practical, fallback to synchronization</li>
+  <li><strong>Randomness</strong>: always run tests in random order, include random data within your tests as well but don’t let it be unpredictable in your tests.</li>
+</ol>
+
+<p><strong>There is still flaky tests, how should we deal with that?</strong></p>
+
+<p>Again, no perfect solution here but you can try the following:</p>
+
+<ul>
+  <li><strong>Run until it passes!</strong></li>
+  <li><strong>Quarantine and fix</strong> (e.g. mark down flaky tests as you go, quarantine it and once you have the chance go fix them!)</li>
+</ul>
+
+<p>Let’s keep the conversation going! Do you have any interesting flaky test stories? What is your team’s approach for dealing with the problem?</p>
+
+<p><strong>References:</strong></p>
+
+<ul>
+  <li><a href="https://circleci.com/blog/using-insights-to-discover-flaky-slow-and-failed-tests/">CircleCI: Using Insights to Discover Flaky, Slow, and Failed Tests</a></li>
+  <li><a href="https://martinfowler.com/articles/nonDeterminism.html">Eradicating Non-Determinism in Tests by Martin Fowler</a></li>
+  <li><a href="https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html">Google Testing Blog: Where do our flaky tests come from?</a></li>
+</ul>
+
+</div>
+
+
+
+<div class="pagination">
+  
+  
+    <a href="/2020-04-27/till-next-year-good-times" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2020-05-02 20:40:28 +0200">2020</time> Ziad Tawfeek. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>
