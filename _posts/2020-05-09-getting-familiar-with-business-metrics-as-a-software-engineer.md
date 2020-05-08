@@ -21,9 +21,8 @@ I was surprised to see that some of my friends, colleagues (who were focused on 
 - **Bookings:** a contract between the company and the customer. It reflects a contractual obligation on the part of the customer to pay the company.
 - **Revenue:** is recognized when the service is actually provided or ratably over the life of the subscription agreement
 
-To simplify, a cloud-based SaaS solution called ‘A16’ with customers that come in all shapes and sizes. A16 is offered in 4 different plans - Startup, Growth, Pro and Enterprise, priced at $200, $500, $1000 and $2000 respectively.
-
-**A16** signed up an enterprise customer ‘B’ recently, under an Enterprise plan on 1st January 2019, with a contract in effect for 2 years. If **'B'** commits to two-years, so a Booking would cost **$24000**. But if **'A16'** wants a reasonable guarantee of receiving payments with no commitments, then this will be a revenue.
+>To simplify, a cloud-based SaaS solution called ‘A16’ with customers that come in all shapes and sizes. A16 is offered in 4 different plans - Startup, Growth, Pro and Enterprise, priced at $200, $500, $1000 and $2000 respectively.
+>**A16** signed up an enterprise customer ‘B’ recently, under an Enterprise plan on 1st January 2019, with a contract in effect for 2 years. If **'B'** commits to two-years, so a Booking would cost **$24000**. But if **'A16'** wants a reasonable guarantee of receiving payments with no commitments, then this will be a revenue.
 
 ### Recurring Revenue
 
@@ -40,7 +39,7 @@ This can include some basic types of Recurring Revenue Models: Usage-based, User
 
 In marketplaces, a metric used to value online retail businesses in initial stages, when it is too soon to judge them on the basis of metrics such as revenues and profitability.
 
-If a company is acting merely as mediator and earning commission (takes) on transactions, then its revenue is the commission and **not** the value of total transaction. Famous examples for day-to-day products (Uber, Lyft, Careem)
+>If a company is acting merely as mediator and earning commission (takes) on transactions, then its revenue is the commission and **not** the value of total transaction. Famous examples for day-to-day products (Uber, Lyft, Careem)
 
 Now comes the most important metric where all businesses can measure if they can survive an economic recession or not. **The Cashflow.**
 
