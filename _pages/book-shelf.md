@@ -7,7 +7,8 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
-- Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones
+- Winners Take All: The Elite Charade of Changing the World
+- **Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones**
 - Never Split the Difference: Negotiating as if Your Life Depended on It
 - **The Culture Map: Breaking Through the Invisible Boundaries of Global Business**
 - Thinking, Fast and Slow
