@@ -9,6 +9,9 @@ comments: false
 
 > Second: I'm not business savvy nor a financial expert, I just try to make sense of what I read and I also had the chance to work for two companies who were totally transparent about their business modals and how their revenues are generated.
 
+------------
+
+
 I was surprised to see that some of my friends, colleagues (who were focused on Software Engineering) were underestimating how a pandemic was fatal to (affecting) many businesses and industries. There are many people who are calling for re-opening the economy and there is a reasonable argument about that but this is not the idea I'm writing about here. My main motivation behind this blog post is to make some business and revenue terms that illustrate the health of business and make it familiar to anyone who have little or no knowledge about because it's not part of their daily jobs. While some of this may be obvious to many who live and breathe these metrics all day long, I tried to explain it briefly but feel free to reach out if I'm missing something.
 
 ## Bookings, Revenue, Recurring Revenue, Gross Merchandise Value
