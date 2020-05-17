@@ -29,4 +29,4 @@ A very important thing to mention is that **sometimes when a manager doesn't hav
 
 Also when in doubt, you can refer to **Google**'s internal research on what behaviors make great managers great at an organization as part of the **re:Work** subject researchers.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5bef983-367a-4d8d-8971-6d4824d716bd/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5bef983-367a-4d8d-8971-6d4824d716bd/Untitled.png)
+[![](https://lh3.googleusercontent.com/QHnklPaN7UlXlR0-7EYtcVUTg0zTeGdtm7dqYm0Z1ubCX1FdSyxcHTQMGNPm4CfvOakEr6_1dTMlSmrOxtbT3QA=w1614)](https://lh3.googleusercontent.com/QHnklPaN7UlXlR0-7EYtcVUTg0zTeGdtm7dqYm0Z1ubCX1FdSyxcHTQMGNPm4CfvOakEr6_1dTMlSmrOxtbT3QA=w1614)
