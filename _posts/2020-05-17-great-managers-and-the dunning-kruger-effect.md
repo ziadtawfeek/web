@@ -5,7 +5,7 @@ author: "Ziad"
 comments: false
 ---
 [![](https://images.unsplash.com/photo-1507373318898-766a0e260b51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)](https://images.unsplash.com/photo-1507373318898-766a0e260b51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80)
-Two months ago, I finished [Lost and Founder: A Painfully Honest Field Guide to the Startup World](https://www.goodreads.com/book/show/35957156-lost-and-founder) and there were some chapter that was titled '**If Management Is The Only Way Up, We 're all F***ed**'. It made me reflect on some thoughts I had and as luck would have it, I also stumbled on a related question on Quora.
+Two months ago, I finished [Lost and Founder: A Painfully Honest Field Guide to the Startup World](https://www.goodreads.com/book/show/35957156-lost-and-founder) and there were some chapter that was titled '**If Management Is The Only Way Up, We 're all Fucked**'. It made me reflect on some thoughts I had and as luck would have it, I also stumbled on a related question on Quora.
 
 > [A developer with weaker programming skill was promoted to lead engineer in my company, I asked the CTO for a reason, he responded to me that a lead developer doesn't need to be the best developer in the team, how true is that?](https://www.quora.com/A-developer-with-weaker-programming-skill-was-promoted-to-lead-engineer-in-my-company-I-asked-the-CTO-for-a-reason-he-responded-to-me-that-a-lead-developer-doesnt-need-to-be-the-best-developer-in-the-team-how-true)
 
