@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
+- Future Shaper: How Leaders Can Take Charge in an Uncertain World
 - Get Together: How to build a community with your people
 - Winners Take All: The Elite Charade of Changing the World
 - **Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones**
