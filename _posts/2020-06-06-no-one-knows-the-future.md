@@ -20,7 +20,7 @@ To keep growing, you definitely need to keep yourself aligned with the trends bu
 The following is a quote from [Mickey Mantle.](https://en.wikipedia.org/wiki/Mickey_Mantle "Mickey Mantle.") Mantle was one of the best baseball players and is regarded by many as one of the greatest in baseball history.
 > It's unbelievable how much you don't know about the game you've been playing all your life
 
-There is only one thing I can believe with absolute certainty, and it’s that nobody, knows what the future leads to. No one knows the future but you can think about what to think about next in any situation where you don't know what to do (e.g. what do I need to upskill? what do I need to change?)
+There is only one thing I can believe with absolute certainty, and it’s that nobody, knows what the future leads to, but you can think about **how to think about what's next in any situation** where you don't know what to do (e.g. what do I need to upskill? what do I need to change?)
 1. Find out where you are
 2. Baby steps towards your goal
 3. Adjust understanding based on what you have learned
