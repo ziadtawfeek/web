@@ -4,11 +4,9 @@ title:  "Android UI Tests on a CI"
 author: "Ziad"
 comments: false
 ---
-# Android UI Tests on CI
 
-Learn how to run Android UI Tests on Bitrise using Firebase Test Lab & GitHub Actions
 
-## Wait, why do I need this?
+## Wait, why do we need this?
 
 - A CI/CD pipeline is a software build and delivery process where changes go through sequential steps to build, test an deploy. They both serve as **mistake-proofing process** and as **a feedback mechanism**.
 - Even more broadly, a pipeline can be modeled as the following which is a directed graph with finite nodes and no cycles. Each step in the build process is a node(circle), and the directed edges(connections) lead the code to its next sequential step.
