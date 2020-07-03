@@ -1,7 +1,7 @@
 # Site settings
 title:          Ziad Tawfeek
 description:    "Learning Fanatic | Skeptical | Software Engineer in Test"
-url:            "https://ziadtawfeek.github.io/web"
+url:            "https://ziadtawfeek.github.io/web/"
 
 # Google Analytics
 google_analytics: UA-156608118-1
@@ -9,7 +9,7 @@ google_analytics: UA-156608118-1
 # Author
 author:
   name:         Ziad Tawfeek
-  url:          https://ziadtawfeek.github.io/web
+  url:          https://ziadtawfeek.github.io/web/
 
 # Build settings
 markdown:       kramdown
