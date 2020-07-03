@@ -42,11 +42,11 @@ We need to have these checkboxes on our environment to run in a CI:
 
 to this ⤵️
 
-![https://github.com/ziadtawfeek/web/blob/master/assets/bitrise-workflow.png](https://github.com/ziadtawfeek/web/blob/master/assets/bitrise-workflow.png)
+![https://raw.githubusercontent.com/ziadtawfeek/web/master/assets/bitrise-workflow.png](https://raw.githubusercontent.com/ziadtawfeek/web/master/assets/bitrise-workflow.png)
 
 After getting this to work, you will get something like this ⤵️
 
-![https://github.com/ziadtawfeek/web/blob/master/assets/bitrise-summary.png](https://github.com/ziadtawfeek/web/blob/master/assets/bitrise-summary.png)
+![https://raw.githubusercontent.com/ziadtawfeek/web/master/assets/bitrise-summary.png](https://raw.githubusercontent.com/ziadtawfeek/web/master/assets/bitrise-summary.png)
 
 ### Conclusion:
 
@@ -63,7 +63,7 @@ After getting this to work, you will get something like this ⤵️
 
 After getting this to work, you will get something like this ⤵️
 
-![(https://github.com/ziadtawfeek/web/blob/master/assets/github-actions.png](https://github.com/ziadtawfeek/web/blob/master/assets/github-actions.png)
+[![](https://raw.githubusercontent.com/ziadtawfeek/web/master/assets/github-actions.png)](https://raw.githubusercontent.com/ziadtawfeek/web/master/assets/github-actions.png)
 
 ### Conclusion:
 
