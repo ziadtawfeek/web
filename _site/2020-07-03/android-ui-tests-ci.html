@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Android UI Tests on a CI | Ziad Tawfeek</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Android UI Tests on a CI" />
+<meta name="author" content="Ziad" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Why do we need this?" />
+<meta property="og:description" content="Why do we need this?" />
+<link rel="canonical" href="http://localhost:4000/2020-07-03/android-ui-tests-ci" />
+<meta property="og:url" content="http://localhost:4000/2020-07-03/android-ui-tests-ci" />
+<meta property="og:site_name" content="Ziad Tawfeek" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-03T00:00:00+02:00" />
+<script type="application/ld+json">
+{"description":"Why do we need this?","headline":"Android UI Tests on a CI","dateModified":"2020-07-03T00:00:00+02:00","datePublished":"2020-07-03T00:00:00+02:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020-07-03/android-ui-tests-ci"},"url":"http://localhost:4000/2020-07-03/android-ui-tests-ci","author":{"@type":"Person","name":"Ziad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+
+  <!-- Google Analytics-->
+  
+</head>
+
+
+  <body>
+
+    <nav class="nav">
+  <div class="nav-container">
+    <a href="/">
+      <h2 class="nav-title">Ziad Tawfeek</h2>
+    </a>
+    <ul>
+      <li><a href="/">Posts</a></li>
+      <li><a href="/book-shelf">Book Shelf</a></li>
+      <li><a href="/newsletter">Newsletter</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+    <main>
+      <div class="post">
+  <div class="post-info">
+    <span>Written by</span>
+    
+        Ziad
+    
+
+    
+      <br>
+      <span>on&nbsp;</span><time datetime="2020-07-03 00:00:00 +0200">July 03, 2020</time>
+    
+  </div>
+
+  <h1 class="post-title">Android UI Tests on a CI</h1>
+  <div class="post-line"></div>
+
+  <h2 id="why-do-we-need-this">Why do we need this?</h2>
+
+<ul>
+  <li>A CI/CD pipeline is a software build and delivery process where changes go through sequential steps to build, test, and deploy. They both serve as <strong>mistake-proofing process</strong> and as <strong>a feedback mechanism</strong>.</li>
+  <li>Even more broadly, a pipeline can be modeled as the following which is a directed graph with finite nodes and no cycles. Each step in the build process is a node(circle), and the directed edges(connections) lead the code to its next sequential step.</li>
+</ul>
+
+<p><img src="https://fastersafely.com/images/pipeline_1.png" alt="https://fastersafely.com/images/pipeline_1.png" /></p>
+
+<h2 id="back-story">Back Story</h2>
+
+<p>3 years ago when I was developing <strong>UI Tests</strong> for Android apps, it was challenging to integrate these tests on CI and include it on pipeline (Specifically talking about UI Tests using Espresso). So, we covered only Unit Tests &amp; Integration Tests.</p>
+
+<p>Here are the challenges we encountered especially if you are part of a small team:</p>
+
+<ol>
+  <li>The pipeline we used included <strong>CircleCI</strong>, it was painful to make it work with because <strong><a href="https://www.reddit.com/r/androiddev/comments/7hsar5/has_anyone_been_able_to_run_espresso_tests_in/">x86 emulators are not supported</a></strong>, and running ARM emulators is way too slow to be useful.</li>
+  <li>Setting up and managing an <strong><a href="https://bughuntersam.com/setting-up-a-homemade-charging-station/">in-house device farm</a></strong> is <strong>expensive</strong> and requires long-term investment and on-going infrastructure support - <strong>not a viable option for most teams especially if you are a small one</strong>.</li>
+  <li>Cloud-based device farms such as <strong>Firebase Test Lab</strong> are a much more cost-effective solution for most teams as they take care of managing the infrastructure while offering simple APIs for integrating with existing CI pipelines. However, if you are willing to spend 💰💰💰💰 then go for it. But if you need a reasonable price with a large number of tests, you might need to consider something else.</li>
+</ol>
+
+<h2 id="pre-requisites">Pre-requisites</h2>
+
+<p>We need to have these checkboxes on our environment to run in a CI:</p>
+
+<p>[ ]  Supports configuring the Android Emulator system images used - API level, target: (default or google_apis), arch / ABI (x86 or x86_64).
+[ ]  Supports running modern x86 and x86_64 based emulators with <strong>hardware acceleration (KVM) enabled</strong> for better performance.
+[ ]  Provides enough RAM for running both <strong>Gradle</strong> and an instance of <strong>Emulator</strong>.</p>
+
+<h2 id="what-tools-check-these-boxes">What tools check these boxes?</h2>
+
+<h3 id="1-bitrise"><a href="https://www.bitrise.io/">1. Bitrise</a></h3>
+
+<ul>
+  <li>Bitrise provides an <strong>Android Build for UI Testing</strong> and <strong>Virtual Device Testing</strong> for Android steps that use <strong>Firebase Test Lab</strong> to run tests for the chosen module/build variant with no limit on device hours / no. of test executions.</li>
+  <li>What I like about Bitrise how easy you can set up your workflow using their <strong>Online Workflow Editor</strong>. It makes your life easy instead of configuring your own <code class="highlighter-rouge">YAML</code> file like this</li>
+</ul>
+
+<script src="https://gist.github.com/ziadtawfeek/fd775a57e799a01917688776be25cbb3.js"></script>
+
+<p>to this ⤵️</p>
+
+<p><img src="/assets/bitrise-workflow.png" alt="/assets/bitrise-workflow.png" /></p>
+
+<p>After getting this to work, you will get something like this ⤵️</p>
+
+<p><img src="/assets/bitrise-summary.png" alt="/assets/bitrise-summary.png" /></p>
+
+<h3 id="conclusion">Conclusion:</h3>
+
+<ul>
+  <li><strong>Easy setup, a great tool for iOS &amp; Android, Great Support</strong>  are the top reasons why you should use Bitrise.</li>
+  <li><strong>Just be careful that when you are relying on a platform</strong> and ecosystem makes it harder to port pipelines to potentially better alternatives in the future</li>
+</ul>
+
+<h3 id="2-github-actions"><a href="https://github.com/features/actions">2. GitHub Actions</a></h3>
+
+<ul>
+  <li>GitHub recently added support for CI/CD and is free for public repositories. As a result, many open-source projects on GitHub are starting to migrate their CI/CD workflows to GitHub Actions which has integration with GitHub itself and <strong>strong infrastructure support from Azure.</strong></li>
+  <li>Looking into their <a href="https://docs.github.com/en/actions/reference/software-installed-on-github-hosted-runners#android">virtual environments reference</a>. They don’t support a <a href="https://github.com/actions/virtual-environments/issues/836#issuecomment-624574235">hardware-accelerated emulator</a> within a docker container on a Linux / Ubuntu VM but they offer macOS machines, and these macOS VMs ticks our checkboxes.</li>
+  <li>But we will need to install and configure Android SDK components, create a new instance of an AVD, launch the emulator and run the tests via Gradle.</li>
+  <li>Luckily for us, there’s a <a href="https://github.com/marketplace/actions/android-emulator-runner">Custom GitHub Action</a> on the marketplace that helps us to do that.</li>
+  <li>A major feature that GitHub Actions brings, that you can test multiple versions of an application in parallel using <strong><a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions">Matrix Builds</a></strong> which lets you, for example, test three different versions of Android APIs at the same time. Because GitHub Actions are defined in a basic YAML file, making those changes is only a matter of adding a few lines to the file.</li>
+</ul>
+
+<p>After getting this to work, you will get something like this ⤵️</p>
+
+<p><img src="/assets/github-actions.png" alt="/assets/github-actions.png" /></p>
+
+<h3 id="conclusion-1">Conclusion:</h3>
+
+<ul>
+  <li><strong>Open-source friendliness</strong>, <strong>Integration with many tools</strong> and <strong>Community Support</strong> why you should use <strong>GitHub Actions</strong>.</li>
+  <li>As we run the workflow directly a macOS VM, not a Docker container to overcome the HAXM. We are missing out on some runtime optimization and as tests increase, time will increase. It also remains to be seen how easy to migrate from <strong>GitHub Actions</strong> to other CI/CD providers in the future.</li>
+</ul>
+
+</div>
+
+
+
+<div class="pagination">
+  
+  
+    <a href="/2020-06-06/no-one-knows-the-future" class="right arrow">&#8594;</a>
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+    </main>
+
+    <footer>
+  <span>
+    &copy; <time datetime="2020-07-03 15:27:59 +0200">2020</time> Ziad Tawfeek. Made with Jekyll using the <a href="https://github.com/chesterhow/tale/">Tale</a> theme.
+  </span>
+</footer>
+
+  </body>
+</html>

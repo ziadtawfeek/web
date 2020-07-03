@@ -1,4 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-07T15:02:23+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ziad Tawfeek</title><subtitle>Learning Fanatic | Skeptical | Software Engineer in Test</subtitle><author><name>Ziad Tawfeek</name></author><entry><title type="html">Flaky Tests Explained: Why it happens and What should we control?</title><link href="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control" rel="alternate" type="text/html" title="Flaky Tests Explained: Why it happens and What should we control?" /><published>2020-04-30T00:00:00+02:00</published><updated>2020-04-30T00:00:00+02:00</updated><id>http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control</id><content type="html" xml:base="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control">&lt;p&gt;&lt;a href=&quot;https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=4800&amp;amp;q=80&quot;&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=4800&amp;amp;q=80&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-07-03T15:27:59+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ziad Tawfeek</title><subtitle>Learning Fanatic | Skeptical | Software Engineer in Test</subtitle><author><name>Ziad Tawfeek</name></author><entry><title type="html">Android UI Tests on a CI</title><link href="http://localhost:4000/2020-07-03/android-ui-tests-ci" rel="alternate" type="text/html" title="Android UI Tests on a CI" /><published>2020-07-03T00:00:00+02:00</published><updated>2020-07-03T00:00:00+02:00</updated><id>http://localhost:4000/2020-07-03/android-ui-tests-ci</id><content type="html" xml:base="http://localhost:4000/2020-07-03/android-ui-tests-ci">&lt;h2 id=&quot;why-do-we-need-this&quot;&gt;Why do we need this?&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A CI/CD pipeline is a software build and delivery process where changes go through sequential steps to build, test, and deploy. They both serve as &lt;strong&gt;mistake-proofing process&lt;/strong&gt; and as &lt;strong&gt;a feedback mechanism&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Even more broadly, a pipeline can be modeled as the following which is a directed graph with finite nodes and no cycles. Each step in the build process is a node(circle), and the directed edges(connections) lead the code to its next sequential step.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://fastersafely.com/images/pipeline_1.png&quot; alt=&quot;https://fastersafely.com/images/pipeline_1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;back-story&quot;&gt;Back Story&lt;/h2&gt;
+
+&lt;p&gt;3 years ago when I was developing &lt;strong&gt;UI Tests&lt;/strong&gt; for Android apps, it was challenging to integrate these tests on CI and include it on pipeline (Specifically talking about UI Tests using Espresso). So, we covered only Unit Tests &amp;amp; Integration Tests.&lt;/p&gt;
+
+&lt;p&gt;Here are the challenges we encountered especially if you are part of a small team:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;The pipeline we used included &lt;strong&gt;CircleCI&lt;/strong&gt;, it was painful to make it work with because &lt;strong&gt;&lt;a href=&quot;https://www.reddit.com/r/androiddev/comments/7hsar5/has_anyone_been_able_to_run_espresso_tests_in/&quot;&gt;x86 emulators are not supported&lt;/a&gt;&lt;/strong&gt;, and running ARM emulators is way too slow to be useful.&lt;/li&gt;
+  &lt;li&gt;Setting up and managing an &lt;strong&gt;&lt;a href=&quot;https://bughuntersam.com/setting-up-a-homemade-charging-station/&quot;&gt;in-house device farm&lt;/a&gt;&lt;/strong&gt; is &lt;strong&gt;expensive&lt;/strong&gt; and requires long-term investment and on-going infrastructure support - &lt;strong&gt;not a viable option for most teams especially if you are a small one&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Cloud-based device farms such as &lt;strong&gt;Firebase Test Lab&lt;/strong&gt; are a much more cost-effective solution for most teams as they take care of managing the infrastructure while offering simple APIs for integrating with existing CI pipelines. However, if you are willing to spend 💰💰💰💰 then go for it. But if you need a reasonable price with a large number of tests, you might need to consider something else.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
+
+&lt;p&gt;We need to have these checkboxes on our environment to run in a CI:&lt;/p&gt;
+
+&lt;p&gt;[ ]  Supports configuring the Android Emulator system images used - API level, target: (default or google_apis), arch / ABI (x86 or x86_64).
+[ ]  Supports running modern x86 and x86_64 based emulators with &lt;strong&gt;hardware acceleration (KVM) enabled&lt;/strong&gt; for better performance.
+[ ]  Provides enough RAM for running both &lt;strong&gt;Gradle&lt;/strong&gt; and an instance of &lt;strong&gt;Emulator&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-tools-check-these-boxes&quot;&gt;What tools check these boxes?&lt;/h2&gt;
+
+&lt;h3 id=&quot;1-bitrise&quot;&gt;&lt;a href=&quot;https://www.bitrise.io/&quot;&gt;1. Bitrise&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bitrise provides an &lt;strong&gt;Android Build for UI Testing&lt;/strong&gt; and &lt;strong&gt;Virtual Device Testing&lt;/strong&gt; for Android steps that use &lt;strong&gt;Firebase Test Lab&lt;/strong&gt; to run tests for the chosen module/build variant with no limit on device hours / no. of test executions.&lt;/li&gt;
+  &lt;li&gt;What I like about Bitrise how easy you can set up your workflow using their &lt;strong&gt;Online Workflow Editor&lt;/strong&gt;. It makes your life easy instead of configuring your own &lt;code class=&quot;highlighter-rouge&quot;&gt;YAML&lt;/code&gt; file like this&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/ziadtawfeek/fd775a57e799a01917688776be25cbb3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;to this ⤵️&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bitrise-workflow.png&quot; alt=&quot;/assets/bitrise-workflow.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After getting this to work, you will get something like this ⤵️&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/bitrise-summary.png&quot; alt=&quot;/assets/bitrise-summary.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Easy setup, a great tool for iOS &amp;amp; Android, Great Support&lt;/strong&gt;  are the top reasons why you should use Bitrise.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Just be careful that when you are relying on a platform&lt;/strong&gt; and ecosystem makes it harder to port pipelines to potentially better alternatives in the future&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-github-actions&quot;&gt;&lt;a href=&quot;https://github.com/features/actions&quot;&gt;2. GitHub Actions&lt;/a&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GitHub recently added support for CI/CD and is free for public repositories. As a result, many open-source projects on GitHub are starting to migrate their CI/CD workflows to GitHub Actions which has integration with GitHub itself and &lt;strong&gt;strong infrastructure support from Azure.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Looking into their &lt;a href=&quot;https://docs.github.com/en/actions/reference/software-installed-on-github-hosted-runners#android&quot;&gt;virtual environments reference&lt;/a&gt;. They don’t support a &lt;a href=&quot;https://github.com/actions/virtual-environments/issues/836#issuecomment-624574235&quot;&gt;hardware-accelerated emulator&lt;/a&gt; within a docker container on a Linux / Ubuntu VM but they offer macOS machines, and these macOS VMs ticks our checkboxes.&lt;/li&gt;
+  &lt;li&gt;But we will need to install and configure Android SDK components, create a new instance of an AVD, launch the emulator and run the tests via Gradle.&lt;/li&gt;
+  &lt;li&gt;Luckily for us, there’s a &lt;a href=&quot;https://github.com/marketplace/actions/android-emulator-runner&quot;&gt;Custom GitHub Action&lt;/a&gt; on the marketplace that helps us to do that.&lt;/li&gt;
+  &lt;li&gt;A major feature that GitHub Actions brings, that you can test multiple versions of an application in parallel using &lt;strong&gt;&lt;a href=&quot;https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions&quot;&gt;Matrix Builds&lt;/a&gt;&lt;/strong&gt; which lets you, for example, test three different versions of Android APIs at the same time. Because GitHub Actions are defined in a basic YAML file, making those changes is only a matter of adding a few lines to the file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After getting this to work, you will get something like this ⤵️&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/github-actions.png&quot; alt=&quot;/assets/github-actions.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;conclusion-1&quot;&gt;Conclusion:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Open-source friendliness&lt;/strong&gt;, &lt;strong&gt;Integration with many tools&lt;/strong&gt; and &lt;strong&gt;Community Support&lt;/strong&gt; why you should use &lt;strong&gt;GitHub Actions&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;As we run the workflow directly a macOS VM, not a Docker container to overcome the HAXM. We are missing out on some runtime optimization and as tests increase, time will increase. It also remains to be seen how easy to migrate from &lt;strong&gt;GitHub Actions&lt;/strong&gt; to other CI/CD providers in the future.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Ziad</name></author><summary type="html">Why do we need this?</summary></entry><entry><title type="html">No One Knows The Future</title><link href="http://localhost:4000/2020-06-06/no-one-knows-the-future" rel="alternate" type="text/html" title="No One Knows The Future" /><published>2020-06-06T00:00:00+02:00</published><updated>2020-06-06T00:00:00+02:00</updated><id>http://localhost:4000/2020-06-06/no-one-knows-the-future</id><content type="html" xml:base="http://localhost:4000/2020-06-06/no-one-knows-the-future">&lt;p&gt;&lt;img src=&quot;https://images.unsplash.com/flagged/photo-1577912504896-abc46b500434?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=2300&amp;amp;q=80&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Disclaimer: This blog is by far, my most cynical post. I don’t want it to be untrustful but I can’t help it, so I apologize for that but it does have a silver lining, don’t leave it in the middle! Seeing lots of online content the past few weeks with the phrase ‘The Future of X’ where X can be any topic or industry you want (e.g. tech, work, testing, etc…) have triggered some thoughts inside me which doesn’t question the quality of said content, but the incredible certainty to predict the future of anything!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;Fear and Greed&lt;/strong&gt; are the top behavioral productive motivators for anyone, and among the uncertainties, we live in. People get nervous and feel the urge to have a self check when someone prompts what’s the future of X and have the following thoughts:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Am I doing my job right?&lt;/li&gt;
+  &lt;li&gt;Are there anything new or cool trends I don’t know about?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I guess for #2, everyone in the tech industry can’t help it. There is a significant amount of peer pressure, feeling of power that draws you into shiny new things!&lt;/p&gt;
+
+&lt;p&gt;To keep growing, you definitely need to keep yourself aligned with the trends but don’t stop thinking and follow them blindly. Think before you follow. Anyone who has incredible certainty about the way of how we do things in the future (e.g. how you write software, how you test software, how is the workplace going to be) might be wrong, or might be an educated guess because it doesn’t always apply to you, your project and where you are at this point of time.&lt;/p&gt;
+
+&lt;p&gt;The following is a quote from &lt;a href=&quot;https://en.wikipedia.org/wiki/Mickey_Mantle&quot; title=&quot;Mickey Mantle.&quot;&gt;Mickey Mantle.&lt;/a&gt; Mantle was one of the best baseball players and is regarded by many as one of the greatest in baseball history.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;It’s unbelievable how much you don’t know about the game you’ve been playing all your life&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There is only one thing I can believe with absolute certainty, and it’s that nobody, knows what the future leads to, but you can think about &lt;strong&gt;how to think about what’s next in any situation&lt;/strong&gt; where you don’t know what to do (e.g. what do I need to upskill? what do I need to change?)&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Find out where you are&lt;/li&gt;
+  &lt;li&gt;Baby steps towards your goal&lt;/li&gt;
+  &lt;li&gt;Adjust understanding based on what you have learned&lt;/li&gt;
+  &lt;li&gt;Reflect and repeat&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Ziad</name></author><summary type="html"></summary></entry><entry><title type="html">Great Managers And The Dunning-Kruger Effect</title><link href="http://localhost:4000/2020-05-17/great-managers-and-the-dunning-kruger-effect" rel="alternate" type="text/html" title="Great Managers And The Dunning-Kruger Effect" /><published>2020-05-17T00:00:00+02:00</published><updated>2020-05-17T00:00:00+02:00</updated><id>http://localhost:4000/2020-05-17/great-managers-and-the%20dunning-kruger-effect</id><content type="html" xml:base="http://localhost:4000/2020-05-17/great-managers-and-the-dunning-kruger-effect">&lt;p&gt;&lt;a href=&quot;https://images.unsplash.com/photo-1507373318898-766a0e260b51?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=2250&amp;amp;q=80&quot;&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1507373318898-766a0e260b51?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=2250&amp;amp;q=80&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
+Two months ago, I finished &lt;a href=&quot;https://www.goodreads.com/book/show/35957156-lost-and-founder&quot;&gt;Lost and Founder: A Painfully Honest Field Guide to the Startup World&lt;/a&gt; and there were some chapter that was titled ‘&lt;strong&gt;If Management Is The Only Way Up, We ‘re all Fucked&lt;/strong&gt;’. It made me reflect on some thoughts I had and as luck would have it, I also stumbled on a related question on Quora.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;https://www.quora.com/A-developer-with-weaker-programming-skill-was-promoted-to-lead-engineer-in-my-company-I-asked-the-CTO-for-a-reason-he-responded-to-me-that-a-lead-developer-doesnt-need-to-be-the-best-developer-in-the-team-how-true&quot;&gt;A developer with weaker programming skill was promoted to lead engineer in my company, I asked the CTO for a reason, he responded to me that a lead developer doesn’t need to be the best developer in the team, how true is that?&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;From my personal experience till this moment, the short answer is &lt;strong&gt;Yes but it really depends&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;There’s a belief that anyone can be a people manager, all it takes is the will to manage, have an understanding of the problem space and be a good leader, right? &lt;strong&gt;Definitely no!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I used to believe that somehow this is true, can you be a great football team manager without playing great? Actually yes, you can simply google &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Jos%C3%A9_Mourinho&quot;&gt;Jose Mourinho&lt;/a&gt;!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I now believe this was the &lt;strong&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect&quot;&gt;Dunning–Kruger effect&lt;/a&gt;&lt;/strong&gt; in mind. The effect is , the incompetent are always overly convinced of their competency. People with no experience or low ability at a task overestimate their ability. Without the self-awareness, people cannot objectively evaluate their competence or incompetence.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Opposing Opinion: But the best managers I have, have previously done the work themselves and got their hands dirty (they were effective as Individual Contributors)?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This impossibly hard to argue with based on my previous experience, &lt;strong&gt;most of the great managers I have worked with were technically solid and great at understanding, motivating people&lt;/strong&gt; but not every manager needs to have a great track record as an individual contributor.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Here’s the catch much of the time great managers were great, good or at least performed well as an individual contributors but this is a correlation and does not apply to every individual contributor who performed greatly.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It may be possible to be a great manager and overcome incompetences in the specific subject matter by relying on, listening and trusting your team to help you understand what you don’t know, that’s what a &lt;strong&gt;service-minded leader&lt;/strong&gt; could do. But it takes a &lt;strong&gt;serious listener&lt;/strong&gt; who is well aware of their lack of relevant knowledge, and great, experienced team members willing to help them. Possible, but rarely happens in my experience so far.&lt;/p&gt;
+
+&lt;p&gt;A very important thing to mention is that &lt;strong&gt;sometimes when a manager doesn’t have great technical skills.&lt;/strong&gt; Team members upgrade, support each other and take an extreme ownership of the work they do.&lt;/p&gt;
+
+&lt;p&gt;Also when in doubt, you can refer to &lt;strong&gt;Google&lt;/strong&gt;’s internal research on what behaviors make great managers great at an organization as part of the &lt;strong&gt;re:Work&lt;/strong&gt; subject researchers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://lh3.googleusercontent.com/QHnklPaN7UlXlR0-7EYtcVUTg0zTeGdtm7dqYm0Z1ubCX1FdSyxcHTQMGNPm4CfvOakEr6_1dTMlSmrOxtbT3QA=w1614&quot;&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/QHnklPaN7UlXlR0-7EYtcVUTg0zTeGdtm7dqYm0Z1ubCX1FdSyxcHTQMGNPm4CfvOakEr6_1dTMlSmrOxtbT3QA=w1614&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content><author><name>Ziad</name></author><summary type="html">Two months ago, I finished Lost and Founder: A Painfully Honest Field Guide to the Startup World and there were some chapter that was titled ‘If Management Is The Only Way Up, We ‘re all Fucked’. It made me reflect on some thoughts I had and as luck would have it, I also stumbled on a related question on Quora.</summary></entry><entry><title type="html">Getting familiar with business metrics as a Software Engineer</title><link href="http://localhost:4000/2020-05-09/getting-familiar-with-business-metrics-as-a-software-engineer" rel="alternate" type="text/html" title="Getting familiar with business metrics as a Software Engineer" /><published>2020-05-09T00:00:00+02:00</published><updated>2020-05-09T00:00:00+02:00</updated><id>http://localhost:4000/2020-05-09/getting-familiar-with-business-metrics-as-a-software-engineer</id><content type="html" xml:base="http://localhost:4000/2020-05-09/getting-familiar-with-business-metrics-as-a-software-engineer">&lt;blockquote&gt;
+  &lt;p&gt;First and foremost: I’m deeply sorry from bottom of my heart for everyone who have experienced pay cuts or job losses. I know this may cause serious financial and psychological distress. It’s also sad to see smart, hard-working people affected due to no fault of their own.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Second: I’m not business savvy nor a financial expert, I just try to make sense of what I read and I also had the chance to work for two companies who were totally transparent about their business modals and how their revenues are generated.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was surprised to see that some of my friends, colleagues (who were focused on Software Engineering) were underestimating how a pandemic was fatal to (affecting) many businesses and industries. There are many people who are calling for re-opening the economy and there is a reasonable argument about that but this is not the idea I’m writing about here. My main motivation behind this blog post is to make some business and revenue terms that illustrate the health of business and make it familiar to anyone who have little or no knowledge about because it’s not part of their daily jobs. While some of this may be obvious to many who live and breathe these metrics all day long, I tried to explain it briefly but feel free to reach out if I’m missing something.&lt;/p&gt;
+
+&lt;h2 id=&quot;bookings-revenue-recurring-revenue-gross-merchandise-value&quot;&gt;Bookings, Revenue, Recurring Revenue, Gross Merchandise Value&lt;/h2&gt;
+
+&lt;h3 id=&quot;bookings-vs-revenue&quot;&gt;Bookings vs Revenue&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Bookings:&lt;/strong&gt; a contract between the company and the customer. It reflects a contractual obligation on the part of the customer to pay the company.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Revenue:&lt;/strong&gt; is recognized when the service is actually provided or ratably over the life of the subscription agreement&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;To simplify, a cloud-based SaaS solution called ‘A16’ with customers that come in all shapes and sizes. A16 is offered in 4 different plans - Startup, Growth, Pro and Enterprise, priced at $200, $500, $1000 and $2000 respectively.
+&lt;strong&gt;A16&lt;/strong&gt; signed up an enterprise customer ‘B’ recently, under an Enterprise plan on 1st January 2019, with a contract in effect for 2 years. If &lt;strong&gt;‘B’&lt;/strong&gt; commits to two-years, so a Booking would cost &lt;strong&gt;$24000&lt;/strong&gt;. But if &lt;strong&gt;‘A16’&lt;/strong&gt; wants a reasonable guarantee of receiving payments with no commitments, then this will be a revenue.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;recurring-revenue&quot;&gt;Recurring Revenue&lt;/h3&gt;
+
+&lt;p&gt;A recurring revenue model is how a business makes money by trading access to products or services for regular, scheduled payments.&lt;/p&gt;
+
+&lt;p&gt;Subscription management darling, consider the day-to-day SaaS products you use: Slack, Atlassian, Spotify, Shopify, Zoom, etc…&lt;/p&gt;
+
+&lt;p&gt;This can include some basic types of Recurring Revenue Models: Usage-based, User-based, Tiered-billing&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;ARR (annual recurring revenue):&lt;/strong&gt; a measure of revenue components that are repeating yearly in nature.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;MRR (monthly recurring revenue)&lt;/strong&gt;: Often, people will multiply one month’s all-in bookings by 12 to get to ARR.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;gross-merchandise-value&quot;&gt;Gross Merchandise Value&lt;/h3&gt;
+
+&lt;p&gt;In marketplaces, a metric used to value online retail businesses in initial stages, when it is too soon to judge them on the basis of metrics such as revenues and profitability.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;If a company is acting merely as mediator and earning commission (takes) on transactions, then its revenue is the commission and &lt;strong&gt;not&lt;/strong&gt; the value of total transaction. Famous examples for day-to-day products (Uber, Lyft, Careem)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now comes the most important metric where all businesses can measure if they can survive an economic recession or not. &lt;strong&gt;The Cashflow.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Wealth is the ability to survive X number of days forward - R. Buckminster Fuller&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cashflow&quot;&gt;Cashflow&lt;/h2&gt;
+
+&lt;p&gt;If you want to measure how wealthy a business is, you need to look for the &lt;strong&gt;&lt;em&gt;Cashflow&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Cashflow is determined by factors like how much revenue the business is generating, business expenditures and projections of ongoing plans/projects.&lt;/p&gt;
+
+&lt;p&gt;An assumption that is made by many is that if business is well established, this means there are a runway that might keep companies going at least for 6 months till the recession loosens up and economies reopen but in reality this is not the case unless it’s a tech giant (e.g. Google, Amazon, Facebook, Microsoft) who have a gigantic cashflow that can keep them going for years.&lt;/p&gt;
+
+&lt;p&gt;Also a lot of businesses weren’t aiming for profitability as much as growth which makes them invest in a lot of projects to earn more revenue on the long term and in their mind, there was mitigation plans for a doomsday economy like what the pandemic brought.&lt;/p&gt;
+
+&lt;p&gt;So if an economic recession happens when everyone/economies are afraid globally to spend cash on non-essential items, all revenues with different business modals are affected and that leaves the companies to reassess the expenditure strategies:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Manage what they can control (Spending, Growth, Earnings)&lt;/li&gt;
+  &lt;li&gt;Decrease headcount and eliminate redundancies as priorities change&lt;/li&gt;
+  &lt;li&gt;Focus on business survival and cut costs (Reduce workforce, eliminate benefits)&lt;/li&gt;
+  &lt;li&gt;Spend every penny as if it was their last&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;what-happens-now&quot;&gt;WHAT HAPPENS NOW?&lt;/h2&gt;
+
+&lt;p&gt;This is just a very brief explanation and in a high-level of how business work, it just gives an insight.&lt;/p&gt;</content><author><name>Ziad</name></author><summary type="html">First and foremost: I’m deeply sorry from bottom of my heart for everyone who have experienced pay cuts or job losses. I know this may cause serious financial and psychological distress. It’s also sad to see smart, hard-working people affected due to no fault of their own.</summary></entry><entry><title type="html">Flaky Tests Explained: Why it happens and What should we control?</title><link href="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control" rel="alternate" type="text/html" title="Flaky Tests Explained: Why it happens and What should we control?" /><published>2020-04-30T00:00:00+02:00</published><updated>2020-04-30T00:00:00+02:00</updated><id>http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control</id><content type="html" xml:base="http://localhost:4000/2020-04-30/flaky-tests-explained-why-it-happens-and-what-should-we-control">&lt;p&gt;&lt;a href=&quot;https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=4800&amp;amp;q=80&quot;&gt;&lt;img src=&quot;https://images.unsplash.com/photo-1444427169197-de497742b62d?ixlib=rb-1.2.1&amp;amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;amp;auto=format&amp;amp;fit=crop&amp;amp;w=4800&amp;amp;q=80&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;An important assumption of regression testing is that test outcomes are deterministic: an unmodified test is expected to either always pass or always fail for the same code under test. Unfortunately, in practice, some tests—often called flaky tests*—have non-deterministic outcomes. Such tests undermine the regression testing as they make it difficult to rely on test results.&lt;/p&gt;
 
