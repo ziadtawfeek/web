@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
+- Nonviolent Communication: A Language of Life
 - An Elegant Puzzle: Systems of Engineering Management
 - **Accelerate: The Science of Lean Software and DevOps**
 - Startup Communities: Building an Entrepreneurial Ecosystem in Your City
