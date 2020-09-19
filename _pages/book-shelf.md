@@ -9,7 +9,7 @@ permalink: /book-shelf/
 
 - Resilient Management
 - **Peopleware: Productive Projects and Teams**
-- Understanding Software
+- **Understanding Software**
 - Nonviolent Communication: A Language of Life
 - **An Elegant Puzzle: Systems of Engineering Management**
 - **Accelerate: The Science of Lean Software and DevOps**
