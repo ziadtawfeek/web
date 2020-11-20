@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Systems Architecture of A Scale: Brief"
+title:  "Systems Architecture of A Scale: Intro"
 author: "Ziad"
 comments: false
 ---
