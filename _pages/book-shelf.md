@@ -7,7 +7,8 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
-- Managing Humans: Biting and Humorous Tales of a Software Engineering Manager
+- Thinking in Systems: A Primer
+- **Managing Humans: Biting and Humorous Tales of a Software Engineering Manager**
 - Tribes: We Need You to Lead Us
 - Radical Focus: Achieving Your Most Important Goals with Objectives and Key Results
 - **The Making of a Manager: What to Do When Everyone Looks to You**
