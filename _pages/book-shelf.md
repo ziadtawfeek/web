@@ -13,7 +13,7 @@ permalink: /book-shelf/
 - Radical Focus: Achieving Your Most Important Goals with Objectives and Key Results
 - **The Making of a Manager: What to Do When Everyone Looks to You**
 - Extraordinary Tennis for the Ordinary Player
-- Resilient Management
+- **Resilient Management**
 - **Peopleware: Productive Projects and Teams**
 - **Understanding Software**
 - Nonviolent Communication: A Language of Life
