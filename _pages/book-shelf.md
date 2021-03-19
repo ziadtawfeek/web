@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
+- The Almanack of Naval Ravikant: A Guide to Wealth and Happiness
 - The Alchemy of Finance
 - Thinking in Systems: A Primer
 - **Managing Humans: Biting and Humorous Tales of a Software Engineering Manager**
