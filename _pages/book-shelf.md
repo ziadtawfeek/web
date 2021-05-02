@@ -7,9 +7,10 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
-- The Almanack of Naval Ravikant: A Guide to Wealth and Happiness
+- The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations
+- **The Almanack of Naval Ravikant: A Guide to Wealth and Happiness**
 - The Alchemy of Finance
-- Thinking in Systems: A Primer
+- **Thinking in Systems: A Primer**
 - **Managing Humans: Biting and Humorous Tales of a Software Engineering Manager**
 - Tribes: We Need You to Lead Us
 - Radical Focus: Achieving Your Most Important Goals with Objectives and Key Results
