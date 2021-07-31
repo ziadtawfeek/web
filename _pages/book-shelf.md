@@ -7,7 +7,8 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
-- Leading Quality: How Great Leaders Deliver High-Quality Software and Accelerate Growth
+- Strengths Finder 2.0
+- **Leading Quality: How Great Leaders Deliver High-Quality Software and Accelerate Growth**
 - **Staff Engineer: Leadership Beyond the Management Track**
 - The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations
 - **The Almanack of Naval Ravikant: A Guide to Wealth and Happiness**
