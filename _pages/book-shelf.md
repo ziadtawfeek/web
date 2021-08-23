@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
+- Leading Snowflakes 
 - Strengths Finder 2.0
 - **Leading Quality: How Great Leaders Deliver High-Quality Software and Accelerate Growth**
 - **Staff Engineer: Leadership Beyond the Management Track**
