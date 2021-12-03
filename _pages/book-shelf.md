@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
+- The Tech Resume Inside-Out
 - **The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win**
 - Leading Snowflakes: The Engineering Manager Handbook 
 - Strengths Finder 2.0
