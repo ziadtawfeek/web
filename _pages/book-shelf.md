@@ -56,3 +56,4 @@ permalink: /book-shelf/
 - Who Moved My Cheese?
 - How to Win Friends & Influence People
 - **Rich Dad Poor Dad: What the Rich Teach Their Kids About Money - That the Poor and Middle Class Do Not!**
+- The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness
