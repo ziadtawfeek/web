@@ -7,6 +7,8 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
 
+- **Team Topologies: Organizing Business and Technology Teams for Fast Flow**
+- The All New Don't Think of an Elephant
 - **The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness**
 - Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems
 - The Tech Resume Inside-Out
