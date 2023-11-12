@@ -5,8 +5,9 @@ author: "Ziad"
 permalink: /book-shelf/
 ---
 
-### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved, the others I thought were okay
+### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved the others I thought were okay
 
+- Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts
 - **Team Topologies: Organizing Business and Technology Teams for Fast Flow**
 - The All New Don't Think of an Elephant
 - **The Psychology of Money: Timeless Lessons on Wealth, Greed, and Happiness**
