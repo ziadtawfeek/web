@@ -8,7 +8,6 @@ permalink: /book-shelf/
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved the others I thought were okay
 
 - Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection
-- Getting Past Your Breakup: How To Turn a Devastating Loss into the Best Thing That Ever Happened to You
 - When Things Fall Apart: Heart Advice For Difficult Times
 - Thinking in Bets: Making Smarter Decisions When You Don't Have All the Facts
 - **Team Topologies: Organizing Business and Technology Teams for Fast Flow**
