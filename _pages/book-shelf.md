@@ -7,6 +7,7 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved the others I thought were okay
 
+- **Clear Thinking: Turning Ordinary Moments into Extraordinary Results**
 - The Compound Effect
 - **The Courage To Be Disliked: How To Free Yourself, Change Your Life and Achieve Real Happiness**
 - Rejection Proof: How I Beat Fear and Became Invincible Through 100 Days of Rejection
