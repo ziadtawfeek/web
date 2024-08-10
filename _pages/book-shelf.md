@@ -7,7 +7,8 @@ permalink: /book-shelf/
 
 ### This is the list of books in my library that I read or partially read recently. Highlighted are the books I’ve loved the others I thought were okay
 
--Exactly What to Say: The Magic Words for Influence and Impact
+- **Skin in the Game: Hidden Asymmetries in Daily Life**
+- Exactly What to Say: The Magic Words for Influence and Impact
 - **Quiet Leadership: Winning Hearts, Minds and Matches**
 - Where Good Ideas Come From: The Natural History of Innovation
 - **Clear Thinking: Turning Ordinary Moments into Extraordinary Results**
